@@ -2,11 +2,13 @@
 @section('content')
 <section id="profile">
     <div class="section__pic-container">
-        <img src="{{asset('/assets/images/profile-pic.png')}}" alt="Anup Shakya Profile Pic">
+        @if(setting('site.owner_pic'))
+        <img src="{{asset('storage/'.setting('site.owner_pic'))}}" alt="Anup Shakya Profile Pic">
+        @endif
     </div>
     <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
-        <h1>{{setting('site.owner') ?? ''}}</h1>
+        <h1>{{setting('site.owner_name') ?? ''}}</h1>
         <p class="section__text__p2"><span class="input"></span></p>
         <div class="btn-container">
 
