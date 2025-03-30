@@ -317,6 +317,10 @@ section{
     margin: auto 0;
 }
 
+.section__pic-container img{
+    border-radius: 50%;
+}
+
 /* Experience Section */
 #experience{
     position: relative;
