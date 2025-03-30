@@ -14,7 +14,7 @@
 
             @if(setting('site.resume'))
             @php
-                $resume = json_decode(setting('site.resume'))[0]->download_link;
+                $resume = str_replace('\\','/',json_decode(setting('site.resume'))[0]->download_link);
             @endphp
             
             <button class="btn btn-color-2" onclick="window.open('{{asset('storage/'.$resume)}}')">
