@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Spicy+Rice&display=swap');
+
+.main_container{
+    margin: 30px 50px;
+}
+
+.main_container .section_title_portfolio{
+    font-family: "Spicy Rice",serif;
+    font-size: 30px;
+    color: #000;
+    font-weight: 400;
+}
+
+.main_container .content_box{
+    padding: 20px;
+    box-shadow: inset rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, inset rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 15px;
+}
+
+.main_container .about_me_pic_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+
+.main_container .about_me_pic_section .about_me_pic img{
+    width: 200px;
+    height: 200px;
+}
+
+.main_container .about_me_pic_section .about_me_pic{
+    position: relative;
+}
+
+.main_container .about_me_pic_section .about_me_pic .about_me_pic_close{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.main_container .about_me_pic_section .about_me_pic .about_me_pic_close i{
+    padding: 5px 7px;
+    background-color:rgb(72, 46, 12);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.main_container .about_me_pic_section .about_me_pic .about_me_pic_close i:hover{
+    background-color: #e9e3e3;
+    color: #000;
+}
+
+.main_container .about_me_pic_section .about_me_inputs #about_pic{
+    width: 100%;
+    border-color: grey;
+}
+
+
+/* About Content Section */
+.about_me_content_section{
+    /* display: flex; */
+}
+
+.content_box label{
+    font-size: 16px;
+    font-weight: 500;
+    color:#000;
+}
+
+.about_me_content_section .input_fields textarea{
+    display: block;
+    width: 100%;
+    resize: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 17px;
+    min-height: 250px;
+    border-color: grey;
+    box-shadow: inset rgb(17 17 26 / 21%) 0px 4px 16px, inset rgb(17 17 26 / 0%) 0px 8px 24px, inset rgb(17 17 26 / 0%) 0px 16px 56px;
+    color: #000;
+    font-weight: 400;
+}
+
+.main_container .section_subtitle_portfolio{
+    font-family: "Spicy Rice",serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #000;
+    margin: 30px 0px;
+}
+
+/* About Education Section */
+.about_education_heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section_primary_btn{
+    background-color: #62a8ea;
+    color: #ffffff;
+    padding: 10px 13px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+.section_primary_btn i{
+    margin: 0px 4px;
+}
+
+.section_primary_btn:hover{
+    background-color: #2c68a0;
+}
+
+.section_danger_btn{
+    background-color: #e23140;
+    color: #ffffff;
+    padding: 10px 13px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+.section_danger_btn i{
+    margin: 0px 4px;
+}
+
+.section_danger_btn:hover{
+    background-color: #910d18;
+}
+
+.about_education_section .about_education_list{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.about_education_section .about_education_list .about_education_item{
+    display: flex;
+    padding: 14px;
+    background-color: #e9e3e391;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.about_education_section .about_education_list .about_education_item input{
+    flex-grow: 1;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    box-shadow: inset rgb(17 17 26 / 21%) 0px 4px 16px, inset rgb(17 17 26 / 0%) 0px 8px 24px, inset rgb(17 17 26 / 0%) 0px 16px 56px;
+    color: #000;
+    border: 1px solid grey;
+    font-weight: 500;
+}
+

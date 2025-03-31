@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PorfolioController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\Voyager\PortfolioController as VoyagerPortfolioController;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
 
@@ -16,7 +18,9 @@ use TCG\Voyager\Facades\Voyager;
 */
 
 Route::get('/',[PortfolioController::class,'index'])->name('home');
-
+Route::prefix('admin')->group(function(){
+    Route::resource('/portfolio',VoyagerPortfolioController::class);
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
