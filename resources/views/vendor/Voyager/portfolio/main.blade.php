@@ -62,9 +62,9 @@
                                     @foreach($educations as $education)
                                     <div class="about_education_item card">
                                         <label for="degree">Degree Earned: <span class="mandatory">*</span></label>
-                                        <input type="text" name="degree[]" value="{{$education->degree}}" id="degree">
+                                        <input type="text" name="degree[]" value="{{$education->degree}}" id="degree" placeholder="Enter Degree">
                                         <label for="gpa">GPA: <span class="mandatory">*</span></label>
-                                        <input type="text" name="gpa[]" value="{{$education->gpa}}" id="gpa">
+                                        <input type="text" name="gpa[]" value="{{$education->gpa}}" placeholder="Enter GPA" id="gpa">
                                         <button type="button" class="section_danger_btn remove_education_btn"><i class="fa-solid fa-minus"></i></button>
                 
                                     </div>
@@ -72,9 +72,9 @@
                                     @else
                                     <div class="about_education_item card">
                                         <label for="degree">Degree Earned: <span class="mandatory">*</span></label>
-                                        <input type="text" name="degree[]" id="degree">
+                                        <input type="text" name="degree[]" id="degree" placeholder="Enter Degree">
                                         <label for="gpa">GPA: <span class="mandatory">*</span></label>
-                                        <input type="text" name="gpa[]" id="gpa">
+                                        <input type="text" name="gpa[]" id="gpa" placeholder="Enter GPA">
                                         <button type="button" class="section_danger_btn remove_education_btn"><i class="fa-solid fa-minus"></i></button>
                 
                                     </div>
@@ -126,9 +126,9 @@
         $('#add_education_btn').click(function(){
             $('.about_education_list').append(`<div class="about_education_item card">
                                     <label for="degree">Degree Earned: <span class="mandatory">*</span></label>
-                                    <input type="text" name="degree[]" id="degree">
+                                    <input type="text" name="degree[]" id="degree" placeholder="Enter Degree">
                                     <label for="gpa">GPA: <span class="mandatory">*</span></label>
-                                    <input type="text" name="gpa[]" id="gpa">
+                                    <input type="text" name="gpa[]" id="gpa" placeholder="Enter GPA">
                                     <button type="button" class="section_danger_btn remove_education_btn"><i class="fa-solid fa-minus"></i></button>
                                 </div>`);
         });
