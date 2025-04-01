@@ -12,6 +12,7 @@
 }
 
 .main_container .content_box{
+    position: relative;
     padding: 20px;
     box-shadow: inset rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, inset rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     border-radius: 15px;
@@ -27,6 +28,8 @@
 .main_container .about_me_pic_section .about_me_pic img{
     width: 200px;
     height: 200px;
+    border-radius: 50%;
+    object-fit: contain;
 }
 
 .main_container .about_me_pic_section .about_me_pic{
@@ -55,7 +58,6 @@
 }
 
 .main_container .about_me_pic_section .about_me_inputs #about_pic{
-    width: 100%;
     border-color: grey;
 }
 
@@ -84,6 +86,20 @@
     color: #000;
     font-weight: 400;
 }
+.mandatory{
+    margin: 0px 4px;
+    color: #e23141;
+}
+
+.error_message{
+    font-size: 15px;
+    color: #e23141;
+    display: block;
+    margin: 2px 0px;
+    padding: 5px;
+    font-weight: 500;
+    border-radius: 5px;
+}
 
 .main_container .section_subtitle_portfolio{
     font-family: "Spicy Rice",serif;
@@ -101,7 +117,7 @@
 }
 
 .section_primary_btn{
-    background-color: #62a8ea;
+    background-color: #01a6eb;
     color: #ffffff;
     padding: 10px 13px;
     border: none;
@@ -152,6 +168,7 @@
     align-items: center;
     border-radius: 10px;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .about_education_section .about_education_list .about_education_item input{
@@ -163,5 +180,11 @@
     color: #000;
     border: 1px solid grey;
     font-weight: 500;
+}
+
+.content_box .section_footer{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
 }
 

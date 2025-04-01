@@ -2,8 +2,13 @@
 
     .main_container .content_box{
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: center;
+    }
+
+    .main_container .content_box .about_me_top_section{
+        display: flex;
+        flex-direction: column-reverse;
         align-items: center;
     }
 
@@ -21,10 +26,33 @@
         right: 10px;
     }
 
+    .main_container .content_box .about_me_top_section .col-md-9{
+        width: 100%;
+        margin: 10px 0px;
+    } 
+}
+
+@media screen and (max-width:1040px){
     .main_container .content_box .col-md-9{
         width: 100%;
         margin: 10px 0px;
     } 
+
+    .content_box .section_footer{
+        display: flex;
+       position: static;
+       justify-content: flex-end;
+    } 
+}
+
+@media screen and (max-width:830px){
+    .about_education_section .about_education_list .about_education_item{
+        flex-direction: column;
+    }
+
+    .about_education_section .about_education_list .about_education_item input{
+        width:100%;
+    }
 }
 
 @media screen and (max-width:600px) {
