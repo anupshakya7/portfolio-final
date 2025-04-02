@@ -19,7 +19,12 @@ use TCG\Voyager\Facades\Voyager;
 
 Route::get('/',[PortfolioController::class,'index'])->name('home');
 Route::prefix('admin')->group(function(){
-    Route::resource('/portfolio',VoyagerPortfolioController::class);
+    Route::prefix('portfolio')->group(function(){
+        Route::get('/',[VoyagerPortfolioController::class,'index'])->name('portfolio.index');
+        Route::post('/aboutStore',[VoyagerPortfolioController::class,'aboutStore'])->name('portfolio.about.store');
+        Route::post('/experienceStore',[VoyagerPortfolioController::class,'experienceStore'])->name('portfolio.experience.store');
+        // Route::post('/projectStore',[VoyagerPortfolioController::class,'projectStore'])->name('portfolio.project.store');
+    });
 });
 
 Route::group(['prefix' => 'admin'], function () {
