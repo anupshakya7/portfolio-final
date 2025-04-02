@@ -91,7 +91,12 @@
                                         </div>
                                         @endif
                                     </div>
-                                    
+                                    @error('degree')
+                                        <span class="error_message">{{$message}}</span>
+                                    @enderror
+                                    @error('gpa')
+                                    <span class="error_message">{{$message}}</span>
+                                   @enderror
                                 </div>
                             </div>
                             <div class="section_footer">
@@ -148,14 +153,14 @@
                                         <div class="experience_education_item card">
                                             <label for="skills">Skills: <span class="mandatory">*</span></label>
                                             <input type="text" name="skills[]" id="skills" placeholder="Enter Skills">
-                                            <label for="gpa">Category: <span class="mandatory">*</span></label>
+                                            <label for="category">Category: <span class="mandatory">*</span></label>
                                             <select name="category[]" class="" id="category">
                                                 <option value="">Select Category</option>
                                                 @foreach($experienceCategories as $experienceCategory)
                                                 <option value="{{$experienceCategory->id}}">{{$experienceCategory->title}}</option>
                                                 @endforeach
                                             </select>
-                                            <label for="gpa">Level: <span class="mandatory">*</span></label>
+                                            <label for="level">Level: <span class="mandatory">*</span></label>
                                             <select name="level[]" class="" id="level">
                                                 <option value="">Select Level</option>
                                                 <option value="Beginner">Beginner</option>
@@ -168,7 +173,15 @@
                                         </div>
                                         @endif
                                     </div>
-                                    
+                                    @error('skills')
+                                        <span class="error_message">{{$message}}</span>
+                                    @enderror
+                                    @error('category')
+                                        <span class="error_message">{{$message}}</span>
+                                    @enderror
+                                    @error('level')
+                                    <span class="error_message">{{$message}}</span>
+                                   @enderror
                                 </div>
                             </div>
                             <div class="section_footer experience_footer">
@@ -184,6 +197,67 @@
             <section class="main_section" id="projects_section">
                 <h3 class="section_title_portfolio">Project</h3>
                 <div class="row">
+                    <form action="{{route('portfolio.experience.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card content_box">
+        
+                            <div class="col-md-12">
+    
+                                <div class="about_education_heading experience_heading">
+                                    {{-- <h4 class="section_subtitle_portfolio">Education</h4> --}}
+                                    <button type="button" class="section_primary_btn project_primary_btn" id="add_experience_btn"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            
+                                <div class="about_education_section">
+                                    <div class="project_education_list">
+                                        <div class="project_education_item card">
+                                            <div class="project_me_pic_section">
+                                                <div class="project_me_pic">
+                                                    <span class="project_me_pic_close">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </span>
+                                                    @php
+                                                        $about_pic = !empty(setting('site.about_pic')) ?  Voyager::image(setting('site.about_pic')) : asset('assets/images/default_user.jpg');
+                                                    @endphp
+                                                    <img src="{{ $about_pic }}" alt="About Me Pic" id="about_me_image">
+                                                </div>
+                                                <div class="about_me_inputs">
+                                                    <label for="about_pic">Profile</label>
+                                                    <input type="file" name="about_pic" id="about_pic"/>
+                                                    @error('about_pic')
+                                                     <span class="error_message">{{$message}}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="project_content">
+                                                <label for="github">Github Link: </label>
+                                                <input type="text" name="github[]" id="github" placeholder="Enter Github Link">
+                                                <label for="live">Live Link: <span class="mandatory">*</span></label>
+                                                <input type="text" name="live[]" id="live" placeholder="Enter Live Link">
+                                            </div>
+                                           
+                                            <button type="button" class="section_danger_btn remove_project_btn"><i class="fa-solid fa-minus"></i></button>
+                    
+                                        </div>
+                                    </div>
+                                    @error('skills')
+                                        <span class="error_message">{{$message}}</span>
+                                    @enderror
+                                    @error('category')
+                                        <span class="error_message">{{$message}}</span>
+                                    @enderror
+                                    @error('level')
+                                    <span class="error_message">{{$message}}</span>
+                                   @enderror
+                                </div>
+                            </div>
+                            <div class="section_footer experience_footer">
+                                <button type="submit" class="section_primary_btn">Submit Your Experience</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {{-- <div class="row">
                     <form action="{{route('portfolio.about.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card content_box">
@@ -260,7 +334,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> --}}
             </section>
             {{-- Projects Section --}}
         </div>
@@ -350,14 +424,14 @@
             $('.experience_education_list').append(`<div class="experience_education_item card">
                                             <label for="skills">Skills: <span class="mandatory">*</span></label>
                                             <input type="text" name="skills[]" id="skills" placeholder="Enter Skills">
-                                            <label for="gpa">Category: <span class="mandatory">*</span></label>
+                                            <label for="category">Category: <span class="mandatory">*</span></label>
                                             <select name="category[]" class="" id="category">
                                                 <option value="">Select Category</option>
                                                 @foreach($experienceCategories as $experienceCategory)
                                                 <option value="{{$experienceCategory->id}}">{{$experienceCategory->title}}</option>
                                                 @endforeach
                                             </select>
-                                            <label for="gpa">Level: <span class="mandatory">*</span></label>
+                                            <label for="level">Level: <span class="mandatory">*</span></label>
                                             <select name="level[]" class="" id="level">
                                                 <option value="">Select Level</option>
                                                 <option value="Beginner">Beginner</option>

@@ -32,6 +32,20 @@
     } 
 }
 
+@media screen and (max-width:1100px){
+    .about_education_section .experience_education_list .experience_education_item{
+        flex-direction: column;
+    }
+
+    .about_education_section .experience_education_list .experience_education_item input{
+        width: 100%;
+    }
+
+    .about_education_section .experience_education_list .experience_education_item select{
+        width: 100%;
+    }
+}
+
 @media screen and (max-width:1040px){
     .main_container .content_box .col-md-9{
         width: 100%;

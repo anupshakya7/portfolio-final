@@ -65,7 +65,14 @@
     <h1 class="title">About Me</h1>
     <div class="section-container">
         <div class="section__pic-container">
-            <img src="{{asset('/assets/images/about-pic.png')}}" alt="Profile Pic" class="about-pic">
+            @php
+                if(setting('site.about_pic')){
+                    $about_pic = Voyager::image(setting('site.about_pic'));
+                }else{
+                    $about_pic = asset('assets/images/default_user.jpg');
+                }
+            @endphp
+            <img src="{{$about_pic}}" alt="Profile Pic" class="about-pic">
         </div>
         <div class="about-details-container">
             <div class="about-containers">
@@ -77,11 +84,17 @@
                 <div class="details-container">
                     <img src="{{asset('/assets/images/education.png')}}" alt="Education Icon" class="icon"/>
                     <h3>Education</h3>
-                    <p>B.Sc. Bachelors Degree<br/></p>
+                    @if(count($educations) > 0)
+                    @foreach($educations as $education)
+                    <p>{{$education->degree}}<br/></p>
+                    @endforeach
+                    @endif
                 </div>
             </div>
             <div class="text-container">
-                <p>I’m a Full Stack Developer with expertise in PHP, JavaScript, Laravel, Vue.js, React.js, Node.js, MySQL, MongoDB, and WordPress (including Voyager). I specialize in building responsive, dynamic web applications and working with CSS frameworks like Bootstrap and Tailwind. With solid experience in Git for version control, I’m committed to delivering efficient, scalable solutions.</p>
+                @if(setting('site.about_description'))
+                <p>{!! setting('site.about_description') !!}</p>
+                @endif
             </div>
         </div>
     </div>
@@ -92,107 +105,24 @@
     <h1 class="title">Experience</h1>
     <div class="experience-details-container">
         <div class="about-containers">
+            @if(count($experiences) > 0)
+            @foreach($experiences as $experience)
             <div class="details-container">
-                <h2 class="experience-sub-title">Frontend Development</h2>
+                <h2 class="experience-sub-title">{{$experience->title}}</h2>
                 <div class="article-container">
+                    @foreach($experience->skills as $skill)
                     <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
+                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="{{$skill->skills}} Experience Icon" class="icon"/>
                         <div>
-                            <h3>HTML</h3>
-                            <p>Experienced</p>
+                            <h3>{{$skill->skills}}</h3>
+                            <p>{{$skill->level}}</p>
                         </div>
                     </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>CSS</h3>
-                            <p>Experienced</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>Javascript</h3>
-                            <p>Intermediate</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>Bootstrap</h3>
-                            <p>Experienced</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>Vue JS</h3>
-                            <p>Intermediate</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>React JS</h3>
-                            <p>Intermediate</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>Tailwind</h3>
-                            <p>Basic</p>
-                        </div>
-                    </article>
+                    @endforeach
                 </div>
             </div>
-            <div class="details-container">
-                <h2 class="experience-sub-title">Backend Development</h2>
-                <div class="article-container">
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>Laravel</h3>
-                            <p>Experienced</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>Node JS</h3>
-                            <p>Intermediate</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>Express JS</h3>
-                            <p>Intermediate</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>MySQL</h3>
-                            <p>Experienced</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>Git</h3>
-                            <p>Experienced</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="{{asset('/assets/images/checkmark.png')}}" alt="Experience Icon" class="icon"/>
-                        <div>
-                            <h3>Mongo DB</h3>
-                            <p>Intermediate</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
+            @endforeach
+            @endif
         </div>
     </div>
     <img src="{{asset('/assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#projects'">

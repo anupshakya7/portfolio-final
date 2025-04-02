@@ -65,11 +65,33 @@
     align-items: end;
 }
 
+.main_container .project_me_pic_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .main_container .about_me_pic_section .about_me_pic img{
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: contain;
+}
+
+.main_container .project_me_pic_section .project_me_pic img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.main_container .project_me_pic_section .project_me_pic img{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: contain;
+    background-color: #fff;
 }
 
 .main_container .about_me_pic_section .about_me_pic{
@@ -200,14 +222,16 @@
     flex-direction: column;
 }
 
-.about_education_section .experience_education_list{
+.about_education_section .experience_education_list,
+.about_education_section .project_education_list{
     display: flex;
     flex-direction: column;
 }
 
 
 .about_education_section .about_education_list .about_education_item,
-.about_education_section .experience_education_list .experience_education_item{
+.about_education_section .experience_education_list .experience_education_item,
+.about_education_section .project_education_list .project_education_item{
     display: flex;
     padding: 14px;
     background-color: #e9e3e391;
@@ -219,7 +243,8 @@
 }
 
 .about_education_section .about_education_list .about_education_item input,
-.about_education_section .experience_education_list .experience_education_item input{
+.about_education_section .experience_education_list .experience_education_item input,
+.about_education_section .project_education_list .project_education_item input{
     flex-grow: 2;
     border-radius: 10px;
     padding: 10px;
@@ -294,4 +319,21 @@
     overflow:hidden
 }
 
+.project_content{
+    width: 100%;
+}
+
+.project_content input{
+    width: 100%;
+}
+
+.main_container .project_education_list .project_education_item .about_me_pic_section{
+    align-items: center;
+}
+
+.project_education_list .project_education_item .remove_project_btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
 
