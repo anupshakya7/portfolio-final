@@ -104,7 +104,19 @@
     right: 20px;
 }
 
-.main_container .about_me_pic_section .about_me_pic .about_me_pic_close i{
+/* Project Pic */
+.main_container .about_education_section .project_me_pic{
+    position: relative;
+}
+
+.main_container .project_me_pic_section .project_me_pic .project_me_pic_close{
+    position: absolute;
+    top: -7px;
+    right: -7px;
+}
+
+.main_container .about_me_pic_section .about_me_pic .about_me_pic_close i,
+.main_container .project_me_pic_section .project_me_pic .project_me_pic_close i{
     padding: 5px 7px;
     background-color:rgb(72, 46, 12);
     color: #fff;
@@ -114,7 +126,8 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
-.main_container .about_me_pic_section .about_me_pic .about_me_pic_close i:hover{
+.main_container .about_me_pic_section .about_me_pic .about_me_pic_close i:hover,
+.main_container .project_me_pic_section .project_me_pic .project_me_pic_close i:hover{
     background-color: #e9e3e3;
     color: #000;
 }
@@ -226,6 +239,7 @@
 .about_education_section .project_education_list{
     display: flex;
     flex-direction: column;
+    margin: 15px 0;
 }
 
 
@@ -266,9 +280,9 @@
     justify-content: end;
 }
 
-.experience_primary_btn{
+/* .experience_primary_btn{
     margin-bottom: 15px;
-}
+} */
 
 .experience_footer{
     position: relative !important;
@@ -337,3 +351,7 @@
     right: 15px;
 }
 
+
+.project_education_item input{
+    margin-bottom: 20px;
+}
