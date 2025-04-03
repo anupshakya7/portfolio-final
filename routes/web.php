@@ -23,7 +23,7 @@ Route::prefix('admin')->group(function(){
         Route::get('/',[VoyagerPortfolioController::class,'index'])->name('portfolio.index');
         Route::post('/aboutStore',[VoyagerPortfolioController::class,'aboutStore'])->name('portfolio.about.store');
         Route::post('/experienceStore',[VoyagerPortfolioController::class,'experienceStore'])->name('portfolio.experience.store');
-        // Route::post('/projectStore',[VoyagerPortfolioController::class,'projectStore'])->name('portfolio.project.store');
+        Route::post('/projectStore',[VoyagerPortfolioController::class,'projectStore'])->name('portfolio.project.store');
     });
 });
 

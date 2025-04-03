@@ -197,7 +197,7 @@
             <section class="main_section" id="projects_section">
                 <h3 class="section_title_portfolio">Project</h3>
                 <div class="row">
-                    <form action="{{route('portfolio.experience.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('portfolio.project.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card content_box">
         
@@ -205,11 +205,13 @@
     
                                 <div class="about_education_heading experience_heading">
                                     {{-- <h4 class="section_subtitle_portfolio">Education</h4> --}}
-                                    <button type="button" class="section_primary_btn project_primary_btn" id="add_experience_btn"><i class="fa-solid fa-plus"></i></button>
+                                    <button type="button" class="section_primary_btn project_primary_btn" id="add_project_btn"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             
                                 <div class="about_education_section">
                                     <div class="project_education_list">
+                                        @if(count($projects)>0)
+                                        @foreach($projects as $key=>$project)
                                         <div class="project_education_item card">
                                             <div class="project_me_pic_section">
                                                 <div class="project_me_pic">
@@ -217,28 +219,80 @@
                                                         <i class="fa-solid fa-xmark"></i>
                                                     </span>
                                                     @php
-                                                        $about_pic = !empty(setting('site.about_pic')) ?  Voyager::image(setting('site.about_pic')) : asset('assets/images/default_user.jpg');
+                                                        $project_pic = $project->project_pic !== null ? Voyager::image($project->project_pic) : asset('assets/images/project-1.png');
                                                     @endphp
-                                                    <img src="{{ $about_pic }}" alt="About Me Pic" id="about_me_image">
+                                                    <img src="{{ $project_pic }}" alt="Project Pic" class="project_image">
                                                 </div>
                                                 <div class="about_me_inputs">
-                                                    <label for="about_pic">Profile</label>
-                                                    <input type="file" name="about_pic" id="about_pic"/>
-                                                    @error('about_pic')
+                                                    <label for="project_pic">Profile <span class="mandatory">*</span></label></label>
+                                                    <input type="file" name="project_pic[]" value="{{$project->project_pic}}" class="project_pic"/>
+                                                    @error('project_pic')
                                                      <span class="error_message">{{$message}}</span>
                                                     @enderror
                                                 </div>
                                             </div>
                                             <div class="project_content">
+                                                {{-- <input type="hidden" name="project_id[]" value="{{$project->id}}"/> --}}
+                                                <label for="title">Title: <span class="mandatory">*</span></label>
+                                                <input type="text" name="title[]" id="title" value="{{$project->title}}" placeholder="Enter Project Title">
+                                                @error('title')
+                                                    <span class="error_message">{{$message}}</span>
+                                                @enderror
                                                 <label for="github">Github Link: </label>
-                                                <input type="text" name="github[]" id="github" placeholder="Enter Github Link">
+                                                <input type="text" name="github[]" id="github" value="{{$project->github}}" placeholder="Enter Github Link">
+                                                @error('github')
+                                                    <span class="error_message">{{$message}}</span>
+                                                @enderror
                                                 <label for="live">Live Link: <span class="mandatory">*</span></label>
-                                                <input type="text" name="live[]" id="live" placeholder="Enter Live Link">
+                                                <input type="text" name="live[]" id="live" value="{{$project->live}}" placeholder="Enter Live Link">
+                                                @error('live')
+                                                    <span class="error_message">{{$message}}</span>
+                                                @enderror
                                             </div>
                                            
                                             <button type="button" class="section_danger_btn remove_project_btn"><i class="fa-solid fa-minus"></i></button>
                     
                                         </div>
+                                        @endforeach
+                                        @else
+                                        <div class="project_education_item card">
+                                            <div class="project_me_pic_section">
+                                                <div class="project_me_pic">
+                                                    <span class="project_me_pic_close">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </span>
+                                                    <img src="{{ asset('assets/images/project-1.png') }}" alt="Project Pic" class="project_image">
+                                                </div>
+                                                <div class="about_me_inputs">
+                                                    <label for="project_pic">Profile <span class="mandatory">*</span></label></label>
+                                                    <input type="file" name="project_pic[]" class="project_pic"/>
+                                                    @error('project_pic')
+                                                     <span class="error_message">{{$message}}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="project_content">
+                                                <label for="title">Title: <span class="mandatory">*</span></label>
+                                                <input type="text" name="title[]" id="title" placeholder="Enter Project Title">
+                                                @error('title')
+                                                    <span class="error_message">{{$message}}</span>
+                                                @enderror
+                                                <label for="github">Github Link: </label>
+                                                <input type="text" name="github[]" id="github" placeholder="Enter Github Link">
+                                                @error('github')
+                                                    <span class="error_message">{{$message}}</span>
+                                                @enderror
+                                                <label for="live">Live Link: <span class="mandatory">*</span></label>
+                                                <input type="text" name="live[]" id="live" placeholder="Enter Live Link">
+                                                @error('live')
+                                                    <span class="error_message">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                           
+                                            <button type="button" class="section_danger_btn remove_project_btn"><i class="fa-solid fa-minus"></i></button>
+                    
+                                        </div>
+                                        @endif
                                     </div>
                                     @error('skills')
                                         <span class="error_message">{{$message}}</span>
@@ -252,7 +306,7 @@
                                 </div>
                             </div>
                             <div class="section_footer experience_footer">
-                                <button type="submit" class="section_primary_btn">Submit Your Experience</button>
+                                <button type="submit" class="section_primary_btn">Submit Your Projects</button>
                             </div>
                         </div>
                     </form>
@@ -454,6 +508,72 @@
             }else{
                 toastr.error('Please add at least one entry to proceed.');
             }
+        });
+
+
+        //Add New Field For Projects
+        $('#add_project_btn').click(function(){
+            $('.project_education_list').append(`    <div class="project_education_item card">
+                                            <div class="project_me_pic_section">
+                                                <div class="project_me_pic">
+                                                    <span class="project_me_pic_close">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </span>
+                                                    <img src="{{ asset('assets/images/project-1.png') }}" alt="Project Pic" class="project_image">
+                                                </div>
+                                                <div class="about_me_inputs">
+                                                    <label for="project_pic">Profile <span class="mandatory">*</span></label></label>
+                                                    <input type="file" name="project_pic[]" class="project_pic"/>
+                                                    @error('project_pic')
+                                                     <span class="error_message">{{$message}}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="project_content">
+                                                <label for="title">Title: <span class="mandatory">*</span></label>
+                                                <input type="text" name="title[]" id="title" placeholder="Enter Project Title">
+                                                <label for="github">Github Link: </label>
+                                                <input type="text" name="github[]" id="github" placeholder="Enter Github Link">
+                                                <label for="live">Live Link: <span class="mandatory">*</span></label>
+                                                <input type="text" name="live[]" id="live" placeholder="Enter Live Link">
+                                            </div>
+                                           
+                                            <button type="button" class="section_danger_btn remove_project_btn"><i class="fa-solid fa-minus"></i></button>
+                    
+                                        </div>`);
+        });
+
+
+        //Remove Field For Projects
+        $(document).on('click','.remove_project_btn',function(){
+            if($('.project_education_list .project_education_item').length > 1){
+                $(this).closest('.project_education_item').remove();
+            }else{
+                toastr.error('Please add at least one entry to proceed.');
+            }
+        });
+
+        //Add Image to Project
+        $('.project_education_list').on('change','.project_pic',function(){
+            var reader = new FileReader();
+            var projectItem = $(this).closest('.project_education_item');
+            var imgElement = projectItem.find('.project_image');
+
+            reader.onload = function(e){
+                imgElement.attr('src',e.target.result);
+            };
+
+            reader.readAsDataURL(this.files[0]);
+        });
+
+        //Remove Image to Project
+        $('.project_education_list').on('click','.project_me_pic_close',function(){
+            var projectItem = $(this).closest('.project_education_item');
+            var imgElement = projectItem.find('.project_image');
+            var projectImageInput = projectItem.find('.project_pic');
+
+            imgElement.attr('src','{{ asset('assets/images/project-1.png') }}');
+            projectImageInput.val('');
         });
 
     });

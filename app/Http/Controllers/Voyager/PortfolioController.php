@@ -6,6 +6,7 @@ use App\ExperienceCategory;
 use App\Http\Controllers\Controller;
 use App\Models\Education;
 use App\Models\Experience;
+use App\Models\Project;
 use App\Rules\NonEmptyArrayValue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,8 +19,9 @@ class PortfolioController extends Controller
         $educations = Education::all();
         $experienceCategories = ExperienceCategory::where('status','Active')->get();
         $experiences = Experience::with('category')->get();
+        $projects = Project::where('status',1)->get();
 
-        return view('vendor.Voyager.portfolio.main',compact('educations','experienceCategories','experiences'));
+        return view('vendor.Voyager.portfolio.main',compact('educations','experienceCategories','experiences','projects'));
     }
 
     public function aboutStore(Request $request){
@@ -94,6 +96,69 @@ class PortfolioController extends Controller
                 ]);
             }
             return redirect()->back()->with('success','Successfully Update Experience Data!!!');
+        }catch(\Exception $e){
+            return redirect()->back()->with('error',$e->getMessage());
+        }
+    }
+
+    public function projectStore(Request $request){
+        $validatedData = $request->validate([
+            // 'project_id'=>'nullable|array',
+            'title'=>'required|array|min:1',
+            'title.*'=>[new NonEmptyArrayValue],
+            'project_pic'=>'required|array|min:1',
+            'project_pic.*'=>'required|mimes:jpeg,png,jpg|max:2048',
+            'live'=>'required|array|min:1',
+            'live.*'=>[new NonEmptyArrayValue],
+            'github'=>'nullable|array'
+        ]);
+        
+
+        try{
+            $projectsDetails = [];
+            foreach($validatedData['title'] as $key=>$title){
+                
+                if(isset($validatedData['project_pic'][$key])){
+                    $file = $validatedData['project_pic'][$key];
+
+                    if($file !== null && $file->isValid()){
+                        $projectImgs = Project::select('project_pic')->where('user_id',auth()->user()->id)->get();
+    
+                        if(count($projectImgs) > 0){
+                            foreach($projectImgs as $projectImg){
+                                if($projectImg && Storage::exists('public/'.$projectImg->project_pic)){     
+                                    Storage::delete('public/'.$projectImg->project_pic);
+                                }
+                            }
+                        }
+                        
+                        $imageName = time().'-'.($key+1).'.'.$file->getClientOriginalExtension();
+                        $file->storeAs('public/projects/'.$imageName);
+             
+                        $imageDBPath = 'projects/'.$imageName;
+                    }
+                }else{
+                    $imageDBPath = null;
+                }
+
+                Project::where('user_id',auth()->user()->id)->delete();
+                $time = now()->format('Y-m-d H:i:s');
+
+                $projectsDetails[] = [
+                    'title'=>$title,
+                    'project_pic'=>$imageDBPath,
+                    'live'=>$validatedData['live'][$key],
+                    'github'=>$validatedData['github'][$key],
+                    'status'=>1,
+                    'user_id'=>auth()->user()->id,
+                    'created_at'=>$time,
+                    'updated_at'=>$time,
+                ]; 
+            }
+
+            Project::insert($projectsDetails);
+
+            return redirect()->back()->with('success','Successfully Update Project Data!!!');
         }catch(\Exception $e){
             return redirect()->back()->with('error',$e->getMessage());
         }

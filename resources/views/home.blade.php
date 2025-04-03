@@ -132,21 +132,32 @@
     <h1 class="title">Projects</h1>
     <div class="experience-details-container">
         <div class="about-containers">
+            @if(count($projects)>0)
+            @foreach($projects as $key=>$project)
             <div class="details-container color-container">
+                @php
+                    $projectImg = $project->project_pic !== null ? Voyager::image($project->project_pic) : asset('/assets/images/project-1.png'); 
+                @endphp
                 <div class="article-container">
-                    <img src="{{asset('/assets/images/project-1.png')}}" alt="Project 1" class="project-img"/>
+                    <img src="{{$projectImg}}" alt="{{ $project->title }}" class="project-img"/>
                 </div>
-                <h2 class="experience-sub-title project-title">Project One</h2>
+                <h2 class="experience-sub-title project-title">{{ $project->title }}</h2>
                 <div class="btn-container">
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='#'">
+                    @if($project->github)
+                    <button class="btn btn-color-2 project-btn" onclick="location.href='{{ $project->github }}'">
                         Github
                     </button>
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='#'">
+                    @endif
+                    @if($project->live)
+                    <button class="btn btn-color-2 project-btn" onclick="location.href='{{ $project->live }}'">
                         Live Demo
                     </button>
+                    @endif
                 </div>
             </div>
-            <div class="details-container color-container">
+            @endforeach
+            @endif
+            {{-- <div class="details-container color-container">
                 <div class="article-container">
                     <img src="{{asset('/assets/images/project-2.png')}}" alt="Project 2" class="project-img"/>
                 </div>
@@ -173,7 +184,7 @@
                         Live Demo
                     </button>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <img src="{{asset('/assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#contact'">

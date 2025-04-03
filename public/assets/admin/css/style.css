@@ -107,6 +107,8 @@
 /* Project Pic */
 .main_container .about_education_section .project_me_pic{
     position: relative;
+    box-shadow: rgb(17 17 26 / 21%) 0px 4px 16px, rgb(17 17 26 / 0%) 0px 8px 24px, rgb(17 17 26 / 0%) 0px 16px 56px;
+    border-radius: 20px;
 }
 
 .main_container .project_me_pic_section .project_me_pic .project_me_pic_close{
@@ -244,8 +246,7 @@
 
 
 .about_education_section .about_education_list .about_education_item,
-.about_education_section .experience_education_list .experience_education_item,
-.about_education_section .project_education_list .project_education_item{
+.about_education_section .experience_education_list .experience_education_item{
     display: flex;
     padding: 14px;
     background-color: #e9e3e391;
@@ -253,6 +254,17 @@
     align-items: center;
     border-radius: 10px;
     gap: 10px;
+    margin-bottom: 20px;
+}
+
+.about_education_section .project_education_list .project_education_item{
+    display: flex;
+    padding: 14px;
+    background-color: #e9e3e391;
+    justify-content: space-around;
+    align-items: end;
+    border-radius: 10px;
+    gap: 20px;
     margin-bottom: 20px;
 }
 
@@ -353,5 +365,5 @@
 
 
 .project_education_item input{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
