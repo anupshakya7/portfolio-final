@@ -144,12 +144,12 @@
                 <h2 class="experience-sub-title project-title">{{ $project->title }}</h2>
                 <div class="btn-container">
                     @if($project->github)
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='{{ $project->github }}'">
+                    <button class="btn btn-color-2 project-btn" onclick="window.open('{{ $project->github }}','_blank');">
                         Github
                     </button>
                     @endif
                     @if($project->live)
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='{{ $project->live }}'">
+                    <button class="btn btn-color-2 project-btn" onclick="window.open('{{ $project->live }}','_blank');">
                         Live Demo
                     </button>
                     @endif
