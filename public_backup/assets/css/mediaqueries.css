@@ -17,32 +17,6 @@
     #hamburger-nav{
         display: flex;
     }
-    
-    #theme-switch i:last-child,
-    #theme-switch-mobile i:last-child{
-        display:none;
-    }
-    
-    .darkmode #theme-switch i:first-child,
-    .darkmode #theme-switch-mobile i:first-child{
-        display:none;
-    }
-    
-    .darkmode #theme-switch i:last-child,
-    .darkmode #theme-switch-mobile i:last-child
-    {
-        display:block;
-    }
-    
-    #theme-switch{
-        top: 82px;
-        right: 40px;
-    }
-    
-    #theme-switch-mobile{
-        top: 40px;
-        right: 40px; 
-    }
 
     #experience, 
     .experience-details-container{
@@ -51,7 +25,6 @@
 
     #profile,
     .section-container{
-        height: 50vh;
         display: block;
     }
 
@@ -88,8 +61,8 @@
         height: 40vh;
     }
     #profile{
-        height: 50vh;
-        margin-bottom: 6rem;
+        height: 83vh;
+        margin-bottom: 0;
     }
     article{
         font-size: 1rem;

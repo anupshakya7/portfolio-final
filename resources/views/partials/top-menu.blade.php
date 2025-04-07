@@ -5,6 +5,10 @@
     <div>
         {{menu('top-menu','partials.menu-items.top-menu-items-desktop')}}
     </div>
+    <button id="theme-switch">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun" ></i>
+    </button>
 </nav>
 <nav id="hamburger-nav">
     <div class="logo">
@@ -24,4 +28,8 @@
             <li><a href="#contact" onclick="toggleMenu() ">Contact</a></li>
         </div> --}}
     </div>
+     <button id="theme-switch-mobile">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+    </button>
 </nav>

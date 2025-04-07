@@ -123,17 +123,18 @@ class PortfolioController extends Controller
 
                     if($file !== null && $file->isValid()){
                         $projectImgs = Project::select('project_pic')->where('user_id',auth()->user()->id)->get();
-    
+                            
                         if(count($projectImgs) > 0){
                             foreach($projectImgs as $projectImg){
-                                if($projectImg && Storage::exists('public/'.$projectImg->project_pic)){     
-                                    Storage::delete('public/'.$projectImg->project_pic);
+
+                                if($projectImg->project_pic !== null && Storage::exists($projectImg->project_pic)){     
+                                    Storage::delete($projectImg->project_pic);
                                 }
                             }
                         }
                         
                         $imageName = time().'-'.($key+1).'.'.$file->getClientOriginalExtension();
-                        $file->storeAs('public/projects/'.$imageName);
+                        $file->storeAs('projects/'.$imageName);
              
                         $imageDBPath = 'projects/'.$imageName;
                     }

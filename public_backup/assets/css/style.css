@@ -1,27 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root{
-    --background-color:#ffffff;
-    --main-text-color:#000;
-    --top-text-color:rgb(85, 85, 85);
-    --main-text-hover-color:grey;
-    --text-decoration-color:rgb(181, 181, 181);
-    --border-color:rgb(163, 163, 163);
-    --background-color2:rgb(250, 250, 250);
-}
-
-.darkmode{
-     --background-color:#120f0f;
-    --main-text-color:#fff;
-    --top-text-color:#c8c8c8;
-    --main-text-hover-color:grey;
-    --text-decoration-color:rgb(181, 181, 181);
-    --border-color:rgb(163, 163, 163);
-    --background-color2:#120f0f;
-}
-
-
-
 *{
     margin: 0;
     padding: 0;
@@ -29,23 +7,14 @@
 
 body{
     font-family: "Poppins", serif;
-    background-color:var(--background-color);
 }
 
 html{
     scroll-behavior: smooth;
 }
 
-h1{
-    color:var(--main-text-color);
-}
-
-h3{
-    color:var(--main-text-color);
-}
-
 p{
-    color: var(--top-text-color);
+    color: rgb(85, 85, 85);
 }
 
 a, .btn{
@@ -84,59 +53,21 @@ nav{
     font-size: 1.1rem;
 }
 
-#theme-switch,#theme-switch-mobile{
-    height: 50px;
-    width: 50px;
-    padding: 0;
-    border-radius: 50%;
-    background-color: var(--main-text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 33px;
-    right: 40px;
-    border: none;
-    cursor: pointer;
-    z-index: 99;
-}
-
-#theme-switch i,#theme-switch-mobile i{
-    color:var(--background-color);
-}
-
-#theme-switch i:last-child,
-#theme-switch-mobile i:last-child{
-    display:none;
-}
-
-.darkmode #theme-switch i:first-child{
-    display:none;
-}
-
-.darkmode #theme-switch i:last-child,
-.darkmode #theme-switch-mobile i:last-child
-{
-    display:block;
-}
-
-
 a{
-    color: var(--main-text-color);
+    color: black;
     text-decoration: none;
     text-decoration-color: white;
 }
 
 a:hover{
-    color: var(--main-text-hover-color);
+    color: grey;
     text-decoration: underline;
     text-underline-offset: 1rem;
-    text-decoration-color: var(--text-decoration-color);
+    text-decoration-color: rgb(181,181,181);
 }
 
 .logo{
     font-size: 2rem;
-    color:var(--main-text-color);
 }
 
 .logo:hover{
@@ -165,7 +96,7 @@ a:hover{
 .hamburger-icon span{
     width: 100%;
     height: 2px;
-    background-color: var(--main-text-color);
+    background-color: black;
     transition: all 0.3 ease-in-out;
 }
 
@@ -182,7 +113,7 @@ a:hover{
 
 .menu-links a{
     display: block;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     font-size: 1.1rem;
     color: black;
@@ -300,7 +231,6 @@ section{
     padding: 1rem;
     width: 8rem;
     border-radius: 2rem;
-    color:var(--main-text-color);
 }
 
 .btn-color-1,
@@ -369,10 +299,10 @@ section{
 .details-container{
     padding: 1.5rem;
     flex: 1;
-    background: var(--background-color);
+    background: white;
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: var(--border-color);
+    border-color: rgb(163, 163, 163);
     text-align: center;
 }
 
@@ -397,7 +327,7 @@ section{
 }
 
 .experience-sub-title{
-    color: var(--top-text-color);
+    color: rgb(85, 85, 85);
     font-weight: 600;
     font-size: 1.75rem;
     margin-bottom: 2rem;
@@ -407,8 +337,6 @@ section{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    overflow:hidden;
-    position:relative;
 }
 
 .article-container{
@@ -437,8 +365,8 @@ article .icon{
 }
 
 .color-container{
-    border-color: var(--border-color);
-    background: var(--background-color2);
+    border-color: rgb(163, 163, 163);
+    background: rgb(250, 250, 250);
 }
 
 .project-img{
@@ -449,12 +377,12 @@ article .icon{
 
 .project-title{
     margin: 1rem;
-    color: var(--main-text-color);
+    color: black;
 }
 
 .project-btn{
-    color: var(--main-text-color);
-    border-color:var(--border-color);
+    color: black;
+    border-color: rgb(163, 163, 163);
 }
 
 /* Contact Section */
@@ -470,8 +398,8 @@ article .icon{
     justify-content: center;
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: var(--border-color);
-    background: var(--background-color2);
+    border-color: rgb(163, 163, 163);
+    background: rgb(250,250,250);
     margin: 2rem auto;
     padding: 0.5rem;
 }
@@ -506,6 +434,3 @@ footer p{
     text-align: center;
 }
 
-.swiper-slide{
-    margin: 0px 15px;
-}
