@@ -3,7 +3,7 @@
 <section id="profile">
     <div class="section__pic-container">
         @if(setting('site.owner_pic'))
-        <img src="{{set_url(setting('site.owner_pic'))}}" alt="{{setting('site.owner_name') ?? ''}} Profile Pic">
+        <img src="{{set_storage_url(setting('site.owner_pic'))}}" alt="{{setting('site.owner_name') ?? ''}} Profile Pic">
         @endif
     </div>
     <div class="section__text">
@@ -67,7 +67,7 @@
         <div class="section__pic-container">
             @php
                 if(setting('site.about_pic')){
-                    $about_pic = set_url(setting('site.about_pic'));
+                    $about_pic = set_storage_url(setting('site.about_pic'));
                 }else{
                     $about_pic = set_url('assets/images/default_user.jpg');
                 }
@@ -135,7 +135,7 @@
             @if(count($projects)>0)
             @foreach($projects as $key=>$project)
             @php
-                $projectImg = $project->project_pic !== null ? set_url($project->project_pic) : set_url('/assets/images/project-1.png'); 
+                $projectImg = $project->project_pic !== null ? set_storage_url($project->project_pic) : set_url('/assets/images/project-1.png'); 
             @endphp
             <div class="swiper-slide">
                 <div class="details-container color-container equal-height">
