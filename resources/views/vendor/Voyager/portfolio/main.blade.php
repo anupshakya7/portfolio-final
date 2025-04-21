@@ -261,7 +261,7 @@
                                                     <span class="project_me_pic_close">
                                                         <i class="fa-solid fa-xmark"></i>
                                                     </span>
-                                                    <img src="{{ asset('assets/images/project-1.png') }}" alt="Project Pic" class="project_image">
+                                                    <img src="{{ set_url('assets/images/project-1.png') }}" alt="Project Pic" class="project_image">
                                                 </div>
                                                 <div class="about_me_inputs">
                                                     <label for="project_pic">Profile <span class="mandatory">*</span></label></label>
@@ -519,7 +519,7 @@
                                                     <span class="project_me_pic_close">
                                                         <i class="fa-solid fa-xmark"></i>
                                                     </span>
-                                                    <img src="{{ asset('assets/images/project-1.png') }}" alt="Project Pic" class="project_image">
+                                                    <img src="{{ set_url('assets/images/project-1.png') }}" alt="Project Pic" class="project_image">
                                                 </div>
                                                 <div class="about_me_inputs">
                                                     <label for="project_pic">Profile <span class="mandatory">*</span></label></label>
@@ -572,7 +572,7 @@
             var imgElement = projectItem.find('.project_image');
             var projectImageInput = projectItem.find('.project_pic');
 
-            imgElement.attr('src','{{ asset('public/assets/images/project-1.png') }}');
+            imgElement.attr('src','{{ set_url('assets/images/project-1.png') }}');
             projectImageInput.val('');
         });
 
