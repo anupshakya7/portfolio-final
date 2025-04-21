@@ -45,7 +45,7 @@
                                                 <i class="fa-solid fa-xmark"></i>
                                             </span>
                                             @php
-                                                $about_pic = !empty(setting('site.about_pic')) ?  Voyager::image(setting('site.about_pic')) : asset('assets/images/default_user.jpg');
+                                                $about_pic = !empty(setting('site.about_pic')) ?  set_storage_url(setting('site.about_pic')) : set_url('assets/images/default_user.jpg');
                                             @endphp
                                             <img src="{{ $about_pic }}" alt="About Me Pic" id="about_me_image">
                                         </div>
@@ -219,7 +219,7 @@
                                                         <i class="fa-solid fa-xmark"></i>
                                                     </span>
                                                     @php
-                                                        $project_pic = $project->project_pic !== null ? Voyager::image($project->project_pic) : asset('public/assets/images/project-1.png');
+                                                        $project_pic = $project->project_pic !== null ? set_storage_url($project->project_pic) : set_url('assets/images/project-1.png');
                                                     @endphp
                                                     <img src="{{ $project_pic }}" alt="Project Pic" class="project_image">
                                                 </div>
