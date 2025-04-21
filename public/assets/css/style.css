@@ -287,6 +287,12 @@ section{
     height: 2rem;
 }
 
+.darkmode .icon{
+    cursor: pointer;
+    height: 2rem;
+    filter:invert(1) brightness(1);
+}
+
 /* Buttons */
 .btn-container{
     display: flex;
@@ -409,6 +415,7 @@ section{
     flex-direction: column;
     overflow:hidden;
     position:relative;
+    padding: 17px;
 }
 
 .article-container{
@@ -445,6 +452,7 @@ article .icon{
     border-radius: 2rem;
     width: 90%;
     height: 90%;
+    object-fit:contain;
 }
 
 .project-title{
@@ -507,5 +515,24 @@ footer p{
 }
 
 .swiper-slide{
-    margin: 0px 15px;
+    margin: 0px;
+}
+
+.swiper-pagination-bullets{
+    bottom:-5px !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #000000;
+    background: white;
+    padding: 10px;
+    border: 1px solid grey;
+    box-shadow: rgb(17 17 26 / 21%) 0px 4px 16px, rgb(17 17 26 / 0%) 0px 8px 24px, rgb(17 17 26 / 0%) 0px 16px 56px;
+    top: 45%;
+    border-radius: 10px;
+    height:35px;
+}
+
+.swiper-pagination-bullet{
+    filter:invert(1) brightness(0.5);
 }

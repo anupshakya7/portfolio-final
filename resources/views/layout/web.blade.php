@@ -6,6 +6,16 @@
     <meta name="description" content="{{setting('site.description')}}">
     <title>{{setting('site.title')}}</title>
     
+    <meta property="og:site_name" content="Anup Shakya">
+    <meta property="og:title" content="{{setting('site.title')}}">
+    <meta property="og:description" content="{{setting('site.description')}}">
+    <meta property="og:url" content="https://anup-shakya.com.np/">
+    <meta property="og:url" content="website">
+    <meta property="og:image" content="{{Voyager::image(setting('site.owner_pic'))}}">
+    <meta property="og:image:width" content="630">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Profile Pic">
+    
     <!-- Favicon -->
     <link rel="icon" href="{{asset('public/assets/favicon/favicon.ico')}}">
     <link rel="apple-touch-icon" href="{{asset('public/assets/favicon/apple-touch-icon.png')}}">
@@ -29,6 +39,22 @@
     <link rel="stylesheet" href="{{asset('public/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('public/assets/css/mediaqueries.css')}}">
     <!-- Custom Style -->
+    
+    <!--Schema Markup-->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Anup Shakya",
+      "url": "https://anup-shakya.com.np",
+      "jobTitle":"Full Stack Developer",
+      "sameAs":[
+            "https://www.linkedin.com/in/anup-shakya7/",
+            "https://github.com/anupshakya7"
+        ]
+    }
+    </script>
+    <!--Schema Markup-->
 </head>
 <body>
     <!-- Top Progress Bar -->
@@ -56,6 +82,10 @@
     <!-- Select 2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <!-- Select 2 -->
+    
+    <!--Equal Height-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+    <!--Equal Height-->
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -69,6 +99,8 @@
     <script>
         $(document).ready(function(){
             $('.select2').select2();
+            $('.equal-height').matchHeight();
+            $('.equal-height-item').matchHeight();
         });
     </script>
 </body>

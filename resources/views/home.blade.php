@@ -138,8 +138,8 @@
                 $projectImg = $project->project_pic !== null ? Voyager::image($project->project_pic) : asset('/assets/images/project-1.png'); 
             @endphp
             <div class="swiper-slide">
-                <div class="details-container color-container">
-                    <div class="article-container">
+                <div class="details-container color-container equal-height">
+                    <div class="article-container equal-height-item">
                         <img src="{{$projectImg}}" alt="{{ $project->title }}" class="project-img"/>
                     </div>
                     <h2 class="experience-sub-title project-title">{{ $project->title }}</h2>

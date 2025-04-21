@@ -1,8 +1,8 @@
 @extends('voyager::master')
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-<link rel="stylesheet" href="{{ asset('assets/admin/css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/admin/css/mediaquery.css') }}">
+<link rel="stylesheet" href="{{ asset('public/assets/admin/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('public/assets/admin/css/mediaquery.css') }}">
 
 @stop
 @section('page_title', 'Portfolio Management')
@@ -219,7 +219,7 @@
                                                         <i class="fa-solid fa-xmark"></i>
                                                     </span>
                                                     @php
-                                                        $project_pic = $project->project_pic !== null ? Voyager::image($project->project_pic) : asset('assets/images/project-1.png');
+                                                        $project_pic = $project->project_pic !== null ? Voyager::image($project->project_pic) : asset('public/assets/images/project-1.png');
                                                     @endphp
                                                     <img src="{{ $project_pic }}" alt="Project Pic" class="project_image">
                                                 </div>
@@ -448,7 +448,7 @@
 
         //Remove Image when User Click Close Icon
         $('.about_me_pic_close').on('click',function(){
-            $('#about_me_image').attr('src','{{asset('assets/images/default_user.jpg')}}');
+            $('#about_me_image').attr('src','{{asset('public/assets/images/default_user.jpg')}}');
             $('#about_pic').val('');
         })
 
@@ -572,7 +572,7 @@
             var imgElement = projectItem.find('.project_image');
             var projectImageInput = projectItem.find('.project_pic');
 
-            imgElement.attr('src','{{ asset('assets/images/project-1.png') }}');
+            imgElement.attr('src','{{ asset('public/assets/images/project-1.png') }}');
             projectImageInput.val('');
         });
 
