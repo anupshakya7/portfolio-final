@@ -1,0 +1,26 @@
+body{
+    background-color: #000 ;
+}
+.error_page{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error_page h2{
+    color: #fff;
+    padding: 0;
+    font-size: 1000%;
+}
+
+.error_page p{
+    color: #fff;
+    font-weight: 600;
+    font-size: 150%;
+}
+
+.error_page button{
+    margin: 25px 0px;
+}
