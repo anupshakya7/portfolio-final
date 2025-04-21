@@ -17,7 +17,7 @@
             @endphp
             
             <button class="btn btn-color-2" onclick="window.open('{{
-            set_url($resume)}}')">
+            set_storage_url($resume)}}')">
                 Download CV
             </button>
             @endif
