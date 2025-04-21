@@ -11,18 +11,18 @@
     <meta property="og:description" content="{{setting('site.description')}}">
     <meta property="og:url" content="https://anup-shakya.com.np/">
     <meta property="og:url" content="website">
-    <meta property="og:image" content="{{Voyager::image(setting('site.owner_pic'))}}">
+    <meta property="og:image" content="{{set_url(setting('site.owner_pic'))}}">
     <meta property="og:image:width" content="630">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Profile Pic">
     
     <!-- Favicon -->
-    <link rel="icon" href="{{asset('public/assets/favicon/favicon.ico')}}">
-    <link rel="apple-touch-icon" href="{{asset('public/assets/favicon/apple-touch-icon.png')}}">
+    <link rel="icon" href="{{set_url('assets/favicon/favicon.ico')}}">
+    <link rel="apple-touch-icon" href="{{set_url('assets/favicon/apple-touch-icon.png')}}">
 
-    <link rel="icon" href="{{asset('public/assets/favicon/favicon-32x32.png')}}" sizes="32x32" type="image/png">
-    <link rel="icon" href="{{asset('public/assets/favicon/favicon-16x16.png')}}" sizes="16x16" type="image/png">
-    <link rel="icon" href="{{asset('public/assets/favicon/android-chrome-192x192.png')}}" sizes="192x192" type="image/png">
+    <link rel="icon" href="{{set_url('assets/favicon/favicon-32x32.png')}}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{set_url('assets/favicon/favicon-16x16.png')}}" sizes="16x16" type="image/png">
+    <link rel="icon" href="{{set_url('assets/favicon/android-chrome-192x192.png')}}" sizes="192x192" type="image/png">
    
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
    
@@ -31,13 +31,13 @@
     
     <link rel="canonical" href="{{request()->url()}}" />
     
-    <!-- Swiper CSS -->
+    <!-- Swiper CSS --> 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <!-- Select 2 -->
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="{{asset('public/assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('public/assets/css/mediaqueries.css')}}">
+    <link rel="stylesheet" href="{{set_url('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{set_url('assets/css/mediaqueries.css')}}">
     <!-- Custom Style -->
     
     <!--Schema Markup-->
@@ -92,8 +92,8 @@
 
 
     <!-- Custom Script -->
-    <script src="{{asset('public/assets/js/script.js')}}"></script>
-    <script src="{{asset('public/assets/js/darkmode.js')}}" defer></script>
+    <script src="{{config('app.url').'/assets/js/script.js'}}"></script>
+    <script src="{{config('app.url').'/assets/js/darkmode.js'}}" defer></script>
     <!-- Custom Script -->
 
     <script>
