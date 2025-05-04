@@ -103,27 +103,34 @@
 <section id="experience">
     <p class="section__text__p1">Explore My</p>
     <h1 class="title">Experience</h1>
-    <div class="experience-details-container">
-        <div class="about-containers">
+    <div class="experience-details-container swiper-experience-container">
+        <div class="experience-containers swiper-wrapper">
             @if(count($experiences) > 0)
             @foreach($experiences as $experience)
-            <div class="details-container">
-                <h2 class="experience-sub-title">{{$experience->title}}</h2>
-                <div class="article-container">
-                    @foreach($experience->skills as $skill)
-                    <article>
-                        <img src="{{set_url('assets/images/checkmark.png')}}" alt="{{$skill->skills}} Experience Icon" class="icon"/>
-                        <div>
-                            <h3>{{$skill->skills}}</h3>
-                            <p>{{$skill->level}}</p>
-                        </div>
-                    </article>
-                    @endforeach
+            <div class="swiper-slide">
+                <div class="details-container equal-height">
+                    <h2 class="experience-sub-title">{{$experience->title}}</h2>
+                    <div class="article-container">
+                        @foreach($experience->skills as $skill)
+                        <article>
+                            <img src="{{set_url('assets/images/checkmark.png')}}" alt="{{$skill->skills}} Experience Icon" class="icon"/>
+                            <div>
+                                <h3>{{$skill->skills}}</h3>
+                                <p>{{$skill->level}}</p>
+                            </div>
+                        </article>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             @endforeach
             @endif
         </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+        <div class="swiper-pagination"></div>
     </div>
     <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#projects'">
 </section>

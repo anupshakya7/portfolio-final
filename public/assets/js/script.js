@@ -53,3 +53,25 @@ var swiper = new Swiper('.swiper-container',{
             },
         }
 });
+
+// Slider for Experience Section
+var swiperExperience = new Swiper('.swiper-experience-container',{
+    loop:true,
+    spaceBetween:20,
+    navigation:{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination:{
+        el: '.swiper-pagination',
+        clickable:true
+    },
+    breakpoints:{
+        768:{
+            slidesPerView: 1,
+        },
+        1024:{
+            slidesPerView:2,
+        }
+    }
+});

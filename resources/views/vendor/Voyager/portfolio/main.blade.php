@@ -1,8 +1,8 @@
 @extends('voyager::master')
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-<link rel="stylesheet" href="{{ asset('public/assets/admin/css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('public/assets/admin/css/mediaquery.css') }}">
+<link rel="stylesheet" href="{{ set_url('assets/admin/css/style.css') }}">
+<link rel="stylesheet" href="{{ set_url('assets/admin/css/mediaquery.css') }}">
 
 @stop
 @section('page_title', 'Portfolio Management')
@@ -448,7 +448,7 @@
 
         //Remove Image when User Click Close Icon
         $('.about_me_pic_close').on('click',function(){
-            $('#about_me_image').attr('src','{{asset('public/assets/images/default_user.jpg')}}');
+            $('#about_me_image').attr('src','{{set_url('assets/images/default_user.jpg')}}');
             $('#about_pic').val('');
         })
 
