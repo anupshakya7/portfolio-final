@@ -176,7 +176,51 @@
         
        
     </div>
-    <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#contact'">
+    <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#blogs'">
+</section>
+<section id="blogs">
+    <p class="section__text__p1">Explore My Latest Insights</p>
+    <h1 class="title">Featured Blog Posts</h1>
+    <div class="blogs-details-container blog-containers">
+        <div class="details-container color-container equal-height">
+            <div class="article-container equal-height-item">
+                <img src="{{set_url('/assets/images/project-1.png')}}" alt="Hello World" class="project-img"/>
+            </div>
+            <h2 class="blogs-sub-title project-title">Title Name</h2>
+            <p class="blog-description">Blog Description</p>
+            <div class="btn-container">
+                <button class="btn btn-color-2 project-btn" onclick="window.open('','_blank');">
+                    Read More
+                </button>
+            </div>
+        </div>
+        <div class="details-container color-container equal-height">
+            <div class="article-container equal-height-item">
+                <img src="{{set_url('/assets/images/project-1.png')}}" alt="Hello World" class="project-img"/>
+            </div>
+            <h2 class="blogs-sub-title project-title">Title Name</h2>
+            <p class="blog-description">Blog Description</p>
+            <div class="btn-container">
+                <button class="btn btn-color-2 project-btn" onclick="window.open('','_blank');">
+                    Read More
+                </button>
+            </div>
+        </div>
+        <div class="details-container color-container equal-height">
+            <div class="article-container equal-height-item">
+                <img src="{{set_url('/assets/images/project-1.png')}}" alt="Hello World" class="project-img"/>
+            </div>
+            <h2 class="blogs-sub-title project-title">Title Name</h2>
+            <p class="blog-description">Blog Description</p>
+            <div class="btn-container">
+                <button class="btn btn-color-2 project-btn" onclick="window.open('','_blank');">
+                    Read More
+                </button>
+            </div>
+        </div>
+        
+        <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#contact'">
+    </div>
 </section>
 <section id="contact">
     <p class="section__text__p1">Get in Touch</p>

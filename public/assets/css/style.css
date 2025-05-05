@@ -357,6 +357,12 @@ section{
     margin-top: 2rem;
 }
 
+.blog-containers{
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
 .about-details-container{
     justify-content: center;
     flex-direction: column;
@@ -469,6 +475,31 @@ article .icon{
     color: var(--main-text-color);
     border-color:var(--border-color);
 }
+
+/* Blog Section */
+#blogs{
+    position: relative;
+}
+
+.blogs-sub-title{
+    color: var(--top-text-color);
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+.blog-description{
+    margin-bottom: 2rem;;
+}
+
+.blogs-details-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    overflow:hidden;
+    position:relative;
+    padding: 17px;
+}
+
 
 /* Contact Section */
 #contact{
