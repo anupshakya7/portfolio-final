@@ -491,6 +491,12 @@ article .icon{
     margin-bottom: 2rem;;
 }
 
+.blog-view-more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .blogs-details-container{
     display: flex;
     justify-content: center;

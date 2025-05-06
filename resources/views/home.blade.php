@@ -218,9 +218,13 @@
                 </button>
             </div>
         </div>
-        
-        <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#contact'">
     </div>
+    <div class="blog-view-more">
+        <button class="btn btn-color-1" onclick="location.href ='#'">
+            View More
+        </button>
+    </div>
+    <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#contact'">
 </section>
 <section id="contact">
     <p class="section__text__p1">Get in Touch</p>
