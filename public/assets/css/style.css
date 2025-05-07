@@ -300,6 +300,21 @@ section{
     gap: 1rem;
 }
 
+.blog-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-footer p{
+    color: var(--main-text-color);
+    font-weight: 400;
+}
+
+.blog-footer i{
+    margin-right: 5px;
+}
+
 .btn{
     font-weight: 600;
     transition: all 300ms ease;
@@ -482,9 +497,9 @@ article .icon{
 }
 
 .blogs-sub-title{
-    color: var(--top-text-color);
+    color: var(--main-text-color);
     font-weight: 600;
-    font-size: 1.75rem;
+    font-size: 1.3rem;
 }
 
 .blog-description{
@@ -577,4 +592,41 @@ footer p{
 
 .swiper-pagination-bullet{
     filter:invert(1) brightness(0.5);
+}
+
+/* Blog List  */
+#blog-breadcrumb-section{
+    margin: 0px;
+    padding-top: 0px;
+    height: 320px;
+}
+
+#blog-breadcrumb-section .breadcrumb{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 320px;
+    background-size: cover;
+}
+
+#blog-breadcrumb-section .breadcrumb .breadcrumb-inner{
+    position: absolute;
+    left: 10%;
+    line-height: 2;
+}
+
+#blog-breadcrumb-section .breadcrumb .breadcrumb-inner h1{
+    font-size: 2.5rem;
+}
+
+#blog-breadcrumb-section .breadcrumb .breadcrumb-inner .breadcrumb-inner-wrapper i{
+    margin-right: 5px;
+}
+
+#blog-breadcrumb-section .breadcrumb .breadcrumb-inner .breadcrumb-inner-wrapper a:hover{
+    text-decoration: none;
+}
+
+.pagination{
+    display: flex;
 }

@@ -182,7 +182,25 @@
     <p class="section__text__p1">Explore My Latest Insights</p>
     <h1 class="title">Featured Blog Posts</h1>
     <div class="blogs-details-container blog-containers">
+        @foreach($blogs as $blog)
+        @php
+            $blogImage = $blog->thumbnail !== null ? set_storage_url($blog->thumbnail) : set_url('/assets/images/project-1.png');
+        @endphp
         <div class="details-container color-container equal-height">
+            <div class="article-container equal-height-item">
+                <img src="{{ $blogImage }}" alt="Hello World" class="project-img"/>
+            </div>
+            <h2 class="blogs-sub-title project-title equal-height-title">{{$blog->title}}</h2>
+            <p class="blog-description equal-height-description">{{Str::limit($blog->excerpt,100)}}</p>
+            <div class="btn-container blog-footer">
+                <button class="btn btn-color-2 project-btn" onclick="window.open('','_blank');">
+                    Read More
+                </button>
+                <p><i class="fa-solid fa-calendar"></i>{{ \Carbon\Carbon::parse($blog->created_at)->format('d F, Y')}}</p>
+            </div>
+        </div>
+        @endforeach
+        {{-- <div class="details-container color-container equal-height">
             <div class="article-container equal-height-item">
                 <img src="{{set_url('/assets/images/project-1.png')}}" alt="Hello World" class="project-img"/>
             </div>
@@ -205,22 +223,10 @@
                     Read More
                 </button>
             </div>
-        </div>
-        <div class="details-container color-container equal-height">
-            <div class="article-container equal-height-item">
-                <img src="{{set_url('/assets/images/project-1.png')}}" alt="Hello World" class="project-img"/>
-            </div>
-            <h2 class="blogs-sub-title project-title">Title Name</h2>
-            <p class="blog-description">Blog Description</p>
-            <div class="btn-container">
-                <button class="btn btn-color-2 project-btn" onclick="window.open('','_blank');">
-                    Read More
-                </button>
-            </div>
-        </div>
+        </div> --}}
     </div>
     <div class="blog-view-more">
-        <button class="btn btn-color-1" onclick="location.href ='#'">
+        <button class="btn btn-color-1" onclick="location.href ='{{ route('blog.index') }}'">
             View More
         </button>
     </div>

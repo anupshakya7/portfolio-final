@@ -101,6 +101,8 @@
             $('.select2').select2();
             $('.equal-height').matchHeight();
             $('.equal-height-item').matchHeight();
+            $('.equal-height-title').matchHeight();
+            $('.equal-height-description').matchHeight();
         });
     </script>
 </body>
