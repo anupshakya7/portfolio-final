@@ -140,7 +140,7 @@ a:hover{
 }
 
 .logo:hover{
-    cursor: default;
+    cursor: pointer;
 }
 
 /* Hamburger Nav */
@@ -400,12 +400,16 @@ section{
 
 .details-container{
     padding: 1.5rem;
-    flex: 1;
+    /* flex: 1; */
     background: var(--background-color);
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: var(--border-color);
     text-align: center;
+}
+
+.blog_item{
+    width: 30%;
 }
 
 .section-container{
@@ -496,6 +500,10 @@ article .icon{
     position: relative;
 }
 
+#blog-list-section{
+    height: 100vh;
+}
+
 .blogs-sub-title{
     color: var(--main-text-color);
     font-weight: 600;
@@ -520,6 +528,42 @@ article .icon{
     position:relative;
     padding: 17px;
 }
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+
+.pagination .page-item.active .page-link {
+    background-color: var(--main-text-color);
+    border-color: var(--main-text-color);
+    color: var(--background-color);
+}
+
+.pagination .page-item .page-link {
+    padding: 5px 12px;
+    border: 2px solid var(--main-text-color);
+    border-radius: 10px;
+    margin: 0px 5px;
+}
+
+.pagination .page-item .page-link:hover{
+    text-decoration: none;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #ccc;
+    border: 2px solid var(--border-color);
+}
+
+/* .pagination .page-item{
+    padding: 5px;
+    border: 2px solid grey;
+    border-radius: 10px;
+} */
 
 
 /* Contact Section */
@@ -605,7 +649,7 @@ footer p{
     display: flex;
     align-items: center;
     position: relative;
-    height: 320px;
+    height: 520px;
     background-size: cover;
 }
 
@@ -613,6 +657,7 @@ footer p{
     position: absolute;
     left: 10%;
     line-height: 2;
+    color: var(--main-text-color);
 }
 
 #blog-breadcrumb-section .breadcrumb .breadcrumb-inner h1{
@@ -629,4 +674,5 @@ footer p{
 
 .pagination{
     display: flex;
+    
 }

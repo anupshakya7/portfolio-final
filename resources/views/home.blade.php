@@ -186,14 +186,14 @@
         @php
             $blogImage = $blog->thumbnail !== null ? set_storage_url($blog->thumbnail) : set_url('/assets/images/project-1.png');
         @endphp
-        <div class="details-container color-container equal-height">
+        <div class="details-container color-container equal-height blog_item">
             <div class="article-container equal-height-item">
                 <img src="{{ $blogImage }}" alt="Hello World" class="project-img"/>
             </div>
             <h2 class="blogs-sub-title project-title equal-height-title">{{$blog->title}}</h2>
-            <p class="blog-description equal-height-description">{{Str::limit($blog->excerpt,100)}}</p>
+            {{-- <p class="blog-description equal-height-description">{{Str::limit($blog->excerpt,100)}}</p> --}}
             <div class="btn-container blog-footer">
-                <button class="btn btn-color-2 project-btn" onclick="window.open('','_blank');">
+                <button class="btn btn-color-2 project-btn" onclick="location.href = '{{ route('blog.show',$blog->slug) }}'">
                     Read More
                 </button>
                 <p><i class="fa-solid fa-calendar"></i>{{ \Carbon\Carbon::parse($blog->created_at)->format('d F, Y')}}</p>

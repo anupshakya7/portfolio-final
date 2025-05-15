@@ -9,7 +9,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::where('status','Published')->paginate(2);
+        $blogs = Blog::where('status','Published')->paginate(6);
 
         return view('blog.index',compact('blogs'));
     }
@@ -24,9 +24,11 @@ class BlogController extends Controller
         //
     }
 
-    public function show(string $id)
+    public function show($slug)
     {
-        //
+        $single = Blog::where('slug',$slug)->first();
+       
+        return view('blog.single',compact('single'));
     }
 
     public function edit(string $id)

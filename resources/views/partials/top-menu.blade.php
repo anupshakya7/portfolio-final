@@ -1,5 +1,5 @@
 <nav id="desktop-nav">
-    <div class="logo">
+    <div class="logo" onclick="location.href='{{ route('home') }}'">
         Anup Shakya
     </div>
     <div>
