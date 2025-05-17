@@ -1,11 +1,13 @@
 @extends('layout.web')
+@section('title','Blog - Latest Articles, Insights & Updates | Anup Shakya')
+@section('description','Explore our latest blog posts covering tips, tutorials, industry insights, and updates to keep you informed and inspired. Stay ahead with expert content.')
 @section('content')
 <section id="blog-breadcrumb-section">
     <div class="breadcrumb" style="background-image:url({{ set_url('assets/images/banner/blog-banner1.gif') }})">
         <div class="breadcrumb-inner">
-            <h1>Blog</h1>
+            <h1 style="color: #000">Blog</h1>
             <div class="breadcrumb-inner-wrapper">
-                <a href="{{ route('home') }}"><span><i class="fa-solid fa-house"></i>Home</span></a>
+                <a href="{{ route('home') }}" style="color: #000"><span><i class="fa-solid fa-house"></i>Home</span></a>
                 <span> - </span>
                 <span>Blog</span>
             </div>

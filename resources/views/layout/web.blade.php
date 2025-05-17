@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Seo Title and Meta Description -->
+    @php
+        $meta_title='';
+        $meta_desc='';
+        $meta_image='';
+        $meta_image_alt='';
+        
+        //Meta Title
+        if(isset($single) && !empty($single->meta_title)){
+            $meta_title = $single->meta_title;
+        }elseif(isset(app()->view->getSections()['title']) && app()->view->getSections()['title'] !== null){
+            $meta_title = app()->view->getSections()['title'];
+        }else{
+            $meta_title = setting('site.title');
+        }
+
+        //Meta Description
+        if(isset($single) && !empty($single->meta_description)){
+            $meta_desc = $single->meta_description;
+        }elseif(isset(app()->view->getSections()['description']) && app()->view->getSections()['description'] !== null){
+            $meta_desc = app()->view->getSections()['description'];
+        }else{
+            $meta_desc = setting('site.description');
+        }
+
+        //Meta Image
+        $meta_image = isset($single) && !empty($single->thumbnail) ? set_storage_url($single->thumbnail) : set_storage_url(setting('site.owner_pic'));
+        $meta_image_alt = isset($single) && !empty($single->title) ? $single->title : 'Profile Pic'; 
+    @endphp
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{setting('site.description')}}">
-    <title>{{setting('site.title')}}</title>
+    <meta name="description" content="{{$meta_desc}}">
+    <title>{{$meta_title}}</title>
     
     <meta property="og:site_name" content="Anup Shakya">
-    <meta property="og:title" content="{{setting('site.title')}}">
-    <meta property="og:description" content="{{setting('site.description')}}">
+    <meta property="og:title" content="{{$meta_title}}">
+    <meta property="og:description" content="{{$meta_desc}}">
     <meta property="og:url" content="https://anup-shakya.com.np/">
     <meta property="og:url" content="website">
-    <meta property="og:image" content="{{set_url(setting('site.owner_pic'))}}">
+    <meta property="og:image" content="{{$meta_image}}">
     <meta property="og:image:width" content="630">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Profile Pic">
+    <meta property="og:image:alt" content="{{ $meta_image_alt }}">
     
     <!-- Favicon -->
     <link rel="icon" href="{{set_url('assets/favicon/favicon.ico')}}">

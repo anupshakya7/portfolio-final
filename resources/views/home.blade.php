@@ -76,12 +76,12 @@
         </div>
         <div class="about-details-container">
             <div class="about-containers">
-                <div class="details-container">
+                <div class="details-container flex-grow">
                     <img src="{{set_url('assets/images/experience.png')}}" alt="Experience Icon" class="icon"/>
                     <h3>Experience</h3>
                     <p>3+ years <br/> Full Stack Development</p>
                 </div>
-                <div class="details-container">
+                <div class="details-container flex-grow">
                     <img src="{{set_url('assets/images/education.png')}}" alt="Education Icon" class="icon"/>
                     <h3>Education</h3>
                     @if(count($educations) > 0)
