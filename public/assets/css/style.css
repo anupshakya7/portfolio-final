@@ -685,4 +685,5 @@ footer p{
 /* Blog Single */
 .blog-single-container{
     color: var(--main-text-color);
+    line-height: 2.2;
 }
