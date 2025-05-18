@@ -722,3 +722,7 @@ footer p{
     margin-right: 8px;
     color: var(--main-text-color);
 }
+
+.blog-single-container .subtitle::before{
+    content: '#️⃣';
+}
