@@ -687,3 +687,33 @@ footer p{
     color: var(--main-text-color);
     line-height: 2.2;
 }
+
+.blog-single-container a:hover{
+    text-decoration: none;
+    color: var(--main-text-hover-color);    
+}
+
+.blog-single-container ul{
+    list-style: none;
+    margin: 20px 0px;
+    padding-left: 2.5em;
+}
+
+.blog-single-container h3::before{
+    content: '💡';
+}
+
+.blog-single-container h3{
+    font-size: 25px;
+}
+
+.blog-single-container p{
+   color: var(--main-text-color); 
+   padding-left: 2.5em;
+}
+
+.blog-single-container ul li::before{
+    content: '\27A4' ;
+    margin-right: 8px;
+    color: var(--main-text-color);
+}
