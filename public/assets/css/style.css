@@ -707,13 +707,18 @@ footer p{
     font-size: 25px;
 }
 
+.blog-single-container h4{
+    font-size: 20px;
+    padding-left: 2em;
+}
+
 .blog-single-container p{
    color: var(--main-text-color); 
    padding-left: 2.5em;
 }
 
 .blog-single-container ul li::before{
-    content: '\27A4' ;
+    content: '👉' ;
     margin-right: 8px;
     color: var(--main-text-color);
 }
