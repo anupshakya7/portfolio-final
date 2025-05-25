@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PorfolioController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ToolController;
 use App\Http\Controllers\Voyager\PortfolioController as VoyagerPortfolioController;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
@@ -21,7 +22,12 @@ use TCG\Voyager\Facades\Voyager;
 Route::get('/',[PortfolioController::class,'index'])->name('home');
 
 //Blog
-Route::resource('blog',BlogController::class)->only(['index','show']);
+Route::resource('blog',BlogController::class)->only(['index','show']); 
+
+//Tools
+Route::prefix('tool')->group(function(){
+    Route::get('/{slug}',[ToolController::class,'tool'])->name('tool.single');
+});
 
 Route::prefix('admin')->group(function(){
     Route::prefix('portfolio')->group(function(){

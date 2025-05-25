@@ -28,7 +28,9 @@
     <div class="error_page">
         <h2>@yield('code')</h2>
         <p>@yield('message')</p>
+        @if(app()->view->getSections()['code'] !== "503")
         <button class="btn btn-color-1" onclick="location.href='/'">Back Home</button>
+        @endif
     </div>
     <!-- Main Content -->
 
