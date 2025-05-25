@@ -1,6 +1,6 @@
 <nav id="desktop-nav">
     <div class="logo" onclick="location.href='{{ route('home') }}'">
-        Anup Shakyas
+        Anup Shakya
     </div>
     <div>
         {{menu('top-menu','partials.menu-items.top-menu-items-desktop')}}
