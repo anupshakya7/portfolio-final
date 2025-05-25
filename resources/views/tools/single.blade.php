@@ -15,7 +15,6 @@
 <section id="blog-list-section">
     <div class="blog-single-container">
         {!! $single->description !!}
-
     </div>
 </section>
 @endsection
