@@ -1,7 +1,7 @@
 @extends('layout.web')
 @section('content')
 <section id="blog-breadcrumb-section">
-    <div class="breadcrumb" style="background-image:url({{ set_url('assets/images/banner/blog-banner1.gif') }})">
+    <div class="breadcrumb" style="background-image:url({{ set_storage_url($single->banner) }})">
         <div class="breadcrumb-inner">
             <h1 style="color: #000">{{$single->title}}</h1>
             <div class="breadcrumb-inner-wrapper">

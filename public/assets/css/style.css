@@ -223,6 +223,68 @@ a:hover{
     transform: none;
 }
 
+.has-dropdown{
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.has-dropdown a:hover{
+    text-decoration: none;
+}
+
+.has-dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    background-color: #ebe7e7dc;
+    z-index: 999;
+    padding: 10px;
+    list-style: none;
+    width: 285px;
+    top: 100%;
+    left: -50px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.dropdown-menu.up{
+    top: auto;
+    bottom: 100%;
+}
+
+.dropdown-menu li{
+    padding: 10px;
+}
+
+.dropdown-menu li a{
+    color: var(--main-text-color);
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover{
+    color: var(--main-text-hover-color);
+}
+
+.has-dropdown > a::after{
+    content: '\f107';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.has-dropdown:hover > a::after{
+    transform: rotate(90deg);
+}
+
+
+
+
+
 /* Sections */
 section{
     padding-top: 4vh;
@@ -760,4 +822,76 @@ footer p{
 
 .blog-single-container .subtitle::before{
     content: '#️⃣';
+}
+
+/** GPA Converter **/
+.gpa-converter-wrapper{
+    margin: 30px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    flex-direction: column;
+    border: 1px solid #808080;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.gpa-converter-wrapper form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+.gpa-converter-wrapper form input{
+    flex-grow: 2;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    box-shadow: inset rgb(17 17 26 / 21%) 0px 4px 16px, inset rgb(17 17 26 / 0%) 0px 8px 24px, inset rgb(17 17 26 / 0%) 0px 16px 56px;
+    color: #000;
+    border: 1px solid grey;
+    font-weight: 500;
+}
+
+.gpa-converter-wrapper form input:focus{
+    outline: none;
+}
+
+.gpa-button-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gpa-converter-wrapper form button{
+    display: inline;
+    background-color: #01a6eb;
+    color: #ffffff;
+    padding: 10px 13px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.gpa-converter-wrapper form button:hover{
+    background-color: #2c68a0;
+}
+
+#gpa_ans{
+    text-align: center;
+    font-weight: 800;
+}
+
+.text-danger{
+    color: #e11c1c;
+}
+
+.text-success{
+    color: #01a6eb;
 }

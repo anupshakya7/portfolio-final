@@ -124,6 +124,7 @@
     <!-- Custom Script -->
     <script src="{{config('app.url').'/assets/js/script.js'}}"></script>
     <script src="{{config('app.url').'/assets/js/darkmode.js'}}" defer></script>
+    <script src="{{ config('app.url').'/assets/js/menu-dropdown.js' }}"></script>
     <!-- Custom Script -->
 
     <script>
@@ -135,5 +136,6 @@
             $('.equal-height-description').matchHeight();
         });
     </script>
+    @stack('script')
 </body>
 </html>
