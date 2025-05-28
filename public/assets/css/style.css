@@ -281,7 +281,30 @@ a:hover{
     transform: rotate(90deg);
 }
 
+@media(max-width: 768px){
+    .has-dropdown{
+        padding-bottom: 0px;
+    }
 
+    .has-dropdown .dropdown-menu{
+        display: none;
+    }
+
+    .has-dropdown.active .dropdown-menu{
+        display: block;
+        position: static;
+        width: 100%;
+        left: 0;
+        top: auto;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .has-dropdown.active > a::after{
+        transform: rotate(-90deg);
+    }
+}
 
 
 

@@ -5,10 +5,6 @@
         <ul class="dropdown-menu" id="{{ Str::slug($item->title) }}-menu">
             @foreach($item->children as $child)
                 <li><a href="{{$child->url}}">{{$child->title}}</a></li>
-                <li><a href="{{$child->url}}">{{$child->title}}</a></li>
-                <li><a href="{{$child->url}}">{{$child->title}}</a></li>
-                <li><a href="{{$child->url}}">{{$child->title}}</a></li>
-                <li><a href="{{$child->url}}">{{$child->title}}</a></li>
             @endforeach
         </ul>
         @endif

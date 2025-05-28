@@ -11,6 +11,18 @@ function toggleMenu(type){
     }
 }
 
+function toggleDropdown(event){
+    event.preventDefault();
+
+    const parentLi = event.target.closest('li');
+
+    document.querySelectorAll('.has-dropdown').forEach(item => {
+        if(item !== parentLi) item.classList.remove('active');
+    });
+
+    parentLi.classList.toggle('active');
+}
+
 const typed = new Typed('.input',{
     strings:["Full Stack Developer","Laravel Developer","Vue Developer","React Developer","Wordpress Developer"],
     typedSpeed:200,
