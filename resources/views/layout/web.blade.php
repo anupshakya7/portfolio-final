@@ -63,7 +63,9 @@
     
     <!-- Swiper CSS --> 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <!-- Select 2 -->
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Custom Style -->
     <link rel="stylesheet" href="{{set_url('assets/css/style.css')}}">
@@ -120,6 +122,9 @@
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
     <!-- Custom Script -->
     <script src="{{config('app.url').'/assets/js/script.js'}}"></script>
@@ -129,6 +134,9 @@
 
     <script>
         $(document).ready(function(){
+            AOS.init({
+                once:true
+            });
             $('.select2').select2();
             $('.equal-height').matchHeight();
             $('.equal-height-item').matchHeight();

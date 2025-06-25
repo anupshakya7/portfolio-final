@@ -1,6 +1,6 @@
 @extends('layout.web')
 @section('content')
-<section id="profile">
+<section id="profile" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
     <div class="section__pic-container">
         @if(setting('site.owner_pic'))
         <img src="{{set_storage_url(setting('site.owner_pic'))}}" alt="{{setting('site.owner_name') ?? ''}} Profile Pic">
@@ -60,7 +60,7 @@
         </div>
     </div>
 </section>
-<section id="about">
+<section id="about" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
     <p class="section__text__p1">Get To Know More</p>
     <h1 class="title">About Me</h1>
     <div class="section-container">
@@ -100,7 +100,7 @@
     </div>
     <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#experience'">
 </section>
-<section id="experience">
+<section id="experience" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1000">
     <p class="section__text__p1">Explore My</p>
     <h1 class="title">Experience</h1>
     <div class="experience-details-container swiper-experience-container">
@@ -134,7 +134,7 @@
     </div>
     <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#projects'">
 </section>
-<section id="projects">
+<section id="projects" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
     <p class="section__text__p1">Browser My Recent</p>
     <h1 class="title">Projects</h1>
     <div class="experience-details-container swiper-container">
@@ -178,7 +178,7 @@
     </div>
     <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#blogs'">
 </section>
-<section id="blogs">
+<section id="blogs" data-aos="flip-left" data-aos-delay="200" data-aos-duration="1000">
     <p class="section__text__p1">Explore My Latest Insights</p>
     <h1 class="title">Featured Blog Posts</h1>
     <div class="blogs-details-container blog-containers">
@@ -232,7 +232,7 @@
     </div>
     <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#contact'">
 </section>
-<section id="contact">
+<section id="contact" data-aos="flip-down" data-aos-delay="200" data-aos-duration="1000">
     <p class="section__text__p1">Get in Touch</p>
     <h1 class="title">Contact Me</h1>
     <div class="contact-info-upper-container">
