@@ -100,7 +100,7 @@
     </div>
     <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#experience'">
 </section>
-<section id="experience" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1000">
+<section id="experience" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
     <p class="section__text__p1">Explore My</p>
     <h1 class="title">Experience</h1>
     <div class="experience-details-container swiper-experience-container">
@@ -134,7 +134,7 @@
     </div>
     <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#projects'">
 </section>
-<section id="projects" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+<section id="projects" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
     <p class="section__text__p1">Browser My Recent</p>
     <h1 class="title">Projects</h1>
     <div class="experience-details-container swiper-container">
@@ -178,7 +178,7 @@
     </div>
     <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#blogs'">
 </section>
-<section id="blogs" data-aos="flip-left" data-aos-delay="200" data-aos-duration="1000">
+<section id="blogs" data-aos="fade-bottom" data-aos-delay="200" data-aos-duration="1000">
     <p class="section__text__p1">Explore My Latest Insights</p>
     <h1 class="title">Featured Blog Posts</h1>
     <div class="blogs-details-container blog-containers">
@@ -232,7 +232,7 @@
     </div>
     <img src="{{set_url('assets/images/arrow.png')}}" alt="Arrow Icon" class="icon arrow" onclick="location.href = './#contact'">
 </section>
-<section id="contact" data-aos="flip-down" data-aos-delay="200" data-aos-duration="1000">
+<section id="contact" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
     <p class="section__text__p1">Get in Touch</p>
     <h1 class="title">Contact Me</h1>
     <div class="contact-info-upper-container">
