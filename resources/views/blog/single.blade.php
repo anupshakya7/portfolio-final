@@ -14,7 +14,7 @@
         </div>
     </div>
 </section>
-<section id="blog-list-section">
+<section id="blog-list-section" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
     <div class="blog-single-container">
         {!! $single->description !!}
     </div>
