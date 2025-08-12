@@ -64,7 +64,6 @@
     
                                 <div class="about_education_heading">
                                     <h4 class="section_subtitle_portfolio">Education</h4>
-                                    <button type="button" class="section_primary_btn" id="add_education_btn"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             
                                 <div class="about_education_section">
@@ -98,6 +97,7 @@
                                     <span class="error_message">{{$message}}</span>
                                    @enderror
                                 </div>
+                                <button type="button" class="section_primary_btn" id="add_education_btn"><i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="section_footer">
                                 <button type="submit" class="section_primary_btn">Submit About Yourself</button>
@@ -120,7 +120,6 @@
     
                                 <div class="about_education_heading experience_heading">
                                     {{-- <h4 class="section_subtitle_portfolio">Education</h4> --}}
-                                    <button type="button" class="section_primary_btn experience_primary_btn" id="add_experience_btn"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             
                                 <div class="about_education_section">
@@ -183,6 +182,7 @@
                                     <span class="error_message">{{$message}}</span>
                                    @enderror
                                 </div>
+                                <button type="button" class="section_primary_btn experience_primary_btn" id="add_experience_btn"><i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="section_footer experience_footer">
                                 <button type="submit" class="section_primary_btn">Submit Your Experience</button>
@@ -205,7 +205,6 @@
     
                                 <div class="about_education_heading experience_heading">
                                     {{-- <h4 class="section_subtitle_portfolio">Education</h4> --}}
-                                    <button type="button" class="section_primary_btn project_primary_btn" id="add_project_btn"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             
                                 <div class="about_education_section">
@@ -232,7 +231,7 @@
                                                 </div>
                                             </div>
                                             <div class="project_content">
-                                                {{-- <input type="hidden" name="project_id[]" value="{{$project->id}}"/> --}}
+                                                <input type="hidden" name="project_id[]" value="{{$project->id}}"/>
                                                 <label for="title">Title: <span class="mandatory">*</span></label>
                                                 <input type="text" name="title[]" id="title" value="{{$project->title}}" placeholder="Enter Project Title">
                                                 @error('title')
@@ -304,6 +303,7 @@
                                     <span class="error_message">{{$message}}</span>
                                    @enderror
                                 </div>
+                                <button type="button" class="section_primary_btn project_primary_btn" id="add_project_btn"><i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="section_footer experience_footer">
                                 <button type="submit" class="section_primary_btn">Submit Your Projects</button>
