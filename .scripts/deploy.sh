@@ -8,9 +8,10 @@ if ! command -v composer &> /dev/null
 then
     echo "Composer not found. Installing..."
     curl -sS https://getcomposer.org/installer | php
-    sudo mv composer.phar /usr/local/bin/composer
+    COMPOSER_CMD="php composer.phar"
 else
     echo "Composer is already installed."
+    COMPOSER_CMD="composer"
 fi
 
 # Turn On Maintenance Mode or return true
@@ -21,7 +22,7 @@ fi
 git pull origin master
 
 # Install composer dependencies
-composer install --optimize-autoloader --no-dev --no-interaction
+$COMPOSER_CMD install --optimize-autoloader --no-dev --no-interaction
 
 # Clearing Cache
 php artisan cache:clear
