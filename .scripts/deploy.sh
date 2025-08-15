@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Go to the correct project directory
+cd /home/anupshakyacom/public_html || exit 1
+
 echo "Deployment Started ..."
 
 # Check if composer is installed, install if missing
