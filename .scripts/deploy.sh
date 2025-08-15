@@ -3,13 +3,6 @@ set -e
 
 echo "Deployment Started ..."
 
-# Turn On Maintenance Mode or return true
-# if already is in maintenance mode
-(php artisan down) || true
-
-# Pull the latest version of the app
-git pull origin master
-
 # Check if composer is installed, install if missing
 if ! command -v composer &> /dev/null
 then
@@ -19,6 +12,13 @@ then
 else
     echo "Composer is already installed."
 fi
+
+# Turn On Maintenance Mode or return true
+# if already is in maintenance mode
+(php artisan down) || true
+
+# Pull the latest version of the app
+git pull origin master
 
 # Install composer dependencies
 composer install --optimize-autoloader --no-dev --no-interaction
