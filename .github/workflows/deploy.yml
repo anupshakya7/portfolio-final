@@ -20,7 +20,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: "rm -f ~/public_html/.scripts/deploy.sh"
+          source: ".scripts/deploy.sh"
+          target: "~/public_html/.scripts/"
+          strip_components: 0
+          overwrite: true
 
       - name: Deploy to server
         uses: appleboy/ssh-action@master
