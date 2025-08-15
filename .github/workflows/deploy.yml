@@ -21,7 +21,7 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
           source: ".scripts/deploy.sh"
-          target: "~/public_html/.scripts/deploy.sh"
+          target: "~/public_html/.scripts/"
 
       - name: Deploy to server
         uses: appleboy/ssh-action@master
@@ -30,4 +30,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: "cd ~/public_html && bash .scripts/deploy.sh"
+          script: | 
+            cd ~/public_html  
+            bash .scripts/deploy.sh"
