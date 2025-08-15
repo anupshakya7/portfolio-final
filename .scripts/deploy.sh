@@ -10,6 +10,16 @@ echo "Deployment Started ..."
 # Pull the latest version of the app
 git pull origin master
 
+# Check if composer is installed, install if missing
+if ! command -v composer &> /dev/null
+then
+    echo "Composer not found. Installing..."
+    curl -sS https://getcomposer.org/installer | php
+    sudo mv composer.phar /usr/local/bin/composer
+else
+    echo "Composer is already installed."
+fi
+
 # Install composer dependencies
 composer install --optimize-autoloader --no-dev --no-interaction
 
