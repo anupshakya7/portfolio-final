@@ -30,6 +30,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          script: | 
-            cd ~/public_html  
-            bash .scripts/deploy.sh"
+          script: |
+            cd ~/public_html
+            bash .scripts/deploy.sh
