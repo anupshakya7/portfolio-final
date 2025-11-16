@@ -23,13 +23,6 @@ function toggleDropdown(event){
     parentLi.classList.toggle('active');
 }
 
-const typed = new Typed('.input',{
-    strings:["Full Stack Developer","Laravel Developer","Vue Developer","React Developer","Wordpress Developer"],
-    typedSpeed:200,
-    backSpeed:100,
-    loop:true
-});
-
 //Top Progress Bar
 const filled = document.querySelector('.filled');
 
@@ -87,3 +80,15 @@ var swiperExperience = new Swiper('.swiper-experience-container',{
         }
     }
 });
+
+//Menu Box Shadow when scrolling
+const navs = document.querySelectorAll('.top-menu');
+
+function updateShadow(){
+    navs.forEach(nav => {
+        nav.classList.toggle("active",window.scrollY > 0);
+    });
+}
+
+window.addEventListener("scroll",updateShadow);
+window.addEventListener("touchmove",updateShadow);

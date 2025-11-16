@@ -130,6 +130,9 @@
     <script src="{{config('app.url').'/assets/js/script.js'}}"></script>
     <script src="{{config('app.url').'/assets/js/darkmode.js'}}" defer></script>
     <script src="{{ config('app.url').'/assets/js/menu-dropdown.js' }}"></script>
+    @if(request()->path() == '/')
+    <script src="{{ config('app.url').'/assets/js/typed.js' }}"></script>
+    @endif
     <!-- Custom Script -->
 
     <script>

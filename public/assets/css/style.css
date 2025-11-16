@@ -8,6 +8,7 @@
     --text-decoration-color:rgb(181, 181, 181);
     --border-color:rgb(163, 163, 163);
     --background-color2:rgb(250, 250, 250);
+    --menu-background: #fff;
 }
 
 .darkmode{
@@ -18,6 +19,7 @@
     --text-decoration-color:rgb(181, 181, 181);
     --border-color:rgb(163, 163, 163);
     --background-color2:#120f0f;
+    --menu-background: #2e2e2e;
 }
 
 
@@ -73,9 +75,19 @@ nav,
 }
 
 nav{
+    position: sticky;
+    top: 0;
     justify-content: space-around;
     align-items: center;
-    height: 17vh;
+    height: 11vh;
+    z-index: 999;
+    color: var(--main-text-color);
+    background: var(--menu-background);
+    transition: box-shadow 0.3s ease;
+}
+
+nav.active{
+    box-shadow: rgb(0 0 0 / 7%) 0px 2px 4px !important;
 }
 
 .nav-links{
@@ -94,7 +106,7 @@ nav{
     justify-content: center;
     align-items: center;
     position: sticky;
-    top: 33px;
+    /* top: 33px; */
     right: 40px;
     border: none;
     cursor: pointer;
@@ -310,8 +322,8 @@ a:hover{
 
 /* Sections */
 section{
-    padding-top: 4vh;
-    height: 96vh;
+    padding-top: 15vh;
+    height: calc(100vh - 15vh);
     margin: 0 10rem;
     box-sizing: border-box;
     min-height: fit-content;

@@ -1,4 +1,4 @@
-<nav id="desktop-nav">
+<nav id="desktop-nav" class="top-menu">
     <div class="logo" onclick="location.href='{{ route('home') }}'">
         Anup Shakya
     </div>
@@ -10,7 +10,7 @@
         <i class="fa-solid fa-sun" ></i>
     </button>
 </nav>
-<nav id="hamburger-nav">
+<nav id="hamburger-nav" class="top-menu">
     <div class="logo" onclick="location.href='{{ route('home') }}'">
         Anup Shakya
     </div>
