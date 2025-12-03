@@ -208,7 +208,9 @@ a:hover{
 
 .menu-links.open{
     z-index:999;
-    max-height: 300px;
+    max-height: 500px;
+    width: 600%;
+    box-shadow: rgb(0 0 0 / 8%) 0px 3px 8px;
 }
 
 .hamburger-icon.open span:first-child{
@@ -314,7 +316,7 @@ a:hover{
     }
 
     .has-dropdown.active > a::after{
-        transform: rotate(-90deg);
+        transform: rotate(90deg);
     }
 }
 
