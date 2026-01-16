@@ -16,15 +16,12 @@
     <div class="blog-single-container">
         <div class="gpa-converter-wrapper">
             <h2>Generate QR Code</h2>
-            <form>
-                <input type="text" id="link" placeholder="Enter your link"/>
+            <form action="{{ route('tool.qr-code.submit') }}" method="GET">
+                <input type="text" name="url" id="link" placeholder="Enter your link"/>
                 <div class="gpa-button-wrapper">
-                    <button type="button" id="qr_code_btn">Generate QR</button>
+                    <button type="submit" id="qr_code_btn">Generate QR</button>
                 </div>
             </form>
-            <div id="gpa_ans">
-                
-            </div>
         </div>
     </div>
 </section>

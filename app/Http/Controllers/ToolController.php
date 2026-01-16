@@ -21,16 +21,10 @@ class ToolController extends Controller
             'url' => 'required|url'
         ]);
 
-        $qr = QrCode::format('png')
-            ->size(500)
+        $qr = QrCode::size(500)
             ->margin(2)
-            ->errorCorrection('H')
-            ->merge(public_path('assets/images/logo.png'), 0.25, true)
             ->generate($request->url);
 
-        return response()->json([
-            'success' => true,
-            'qr_code' => base64_encode($qr)
-        ]);
+        return $qr;
     }
 }
