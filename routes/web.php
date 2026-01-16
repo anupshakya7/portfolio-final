@@ -7,6 +7,7 @@ use App\Http\Controllers\ToolController;
 use App\Http\Controllers\Voyager\PortfolioController as VoyagerPortfolioController;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,12 @@ Route::resource('blog',BlogController::class)->only(['index','show']);
 
 //Tools
 Route::prefix('tool')->group(function(){
-    Route::get('/{slug}',[ToolController::class,'tool'])->name('tool.single');
+    //GPA Converter
+    Route::get('/gpa-calculator',[ToolController::class,'gpaCalculator'])->name('tool.gpa-calculator');
+
+    //Generate QR Code
+    Route::get('/qr-code',[ToolController::class,'qrCode'])->name('tool.qr-code');
+    Route::post('/qr-code',[ToolController::class,'qrCodeSubmit'])->name('tool.qr-code.submit');
 });
 
 Route::prefix('admin')->group(function(){
