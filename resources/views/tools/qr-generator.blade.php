@@ -16,7 +16,8 @@
     <div class="blog-single-container">
         <div class="gpa-converter-wrapper">
             <h2>Generate QR Code</h2>
-            <form action="{{ route('tool.qr-code.submit') }}" method="GET">
+            <form action="{{ route('tool.qr-code.submit') }}" method="POST">
+                @csrf
                 <input type="text" name="url" id="link" placeholder="Enter your link"/>
                 <div class="gpa-button-wrapper">
                     <button type="submit" id="qr_code_btn">Generate QR</button>

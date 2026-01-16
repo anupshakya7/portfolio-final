@@ -32,7 +32,7 @@ Route::prefix('tool')->group(function(){
 
     //Generate QR Code
     Route::get('/qr-code',[ToolController::class,'qrCode'])->name('tool.qr-code');
-    Route::get('/qr-code-generate',[ToolController::class,'qrCodeSubmit'])->name('tool.qr-code.submit');
+    Route::post('/qr-code-generate',[ToolController::class,'qrCodeSubmit'])->name('tool.qr-code.submit');
 });
 
 Route::prefix('admin')->group(function(){
