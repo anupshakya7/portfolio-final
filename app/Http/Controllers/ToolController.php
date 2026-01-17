@@ -21,10 +21,20 @@ class ToolController extends Controller
             'url' => 'required|url'
         ]);
 
-        $qr = QrCode::size(500)
-            ->margin(2)
+        $logoPath = public_path('assets/images/logo.png');
+
+        if(!file_exists($logoPath)){
+            abort(404,'Logo file not found');
+        }
+
+        $qr = QrCode::format('png')
+            ->size(500)
+            ->errorCorrection('H')
+            ->merge($logoPath,0.18,true)
             ->generate($request->url);
 
-        return $qr;
+        return response()->json([
+            'qr' => 'data:image/png;base64,'.base64_encode($qr)
+        ]);
     }
 }

@@ -45,6 +45,7 @@
     <meta property="og:image:width" content="630">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="{{ $meta_image_alt }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Favicon -->
     <link rel="icon" href="{{set_url('assets/favicon/favicon.ico')}}">
@@ -71,6 +72,10 @@
     <link rel="stylesheet" href="{{set_url('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{set_url('assets/css/mediaqueries.css')}}">
     <!-- Custom Style -->
+
+    <!-- Page Style -->
+    @stack('css')
+    <!-- Page Style -->
     
     <!--Schema Markup-->
     <script type="application/ld+json">
