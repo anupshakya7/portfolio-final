@@ -14,6 +14,12 @@
             margin: 0px 5px;
         }
 
+        #url_box, #wifi_box{
+            display: flex;
+            flex-direction: column;
+        }
+        
+
         .qr-result {
             display: none;
             justify-content: center;
@@ -55,7 +61,7 @@
 @endpush
 @section('content')
     <section id="blog-breadcrumb-section">
-        <div class="breadcrumb" style="background-image:url('{{ set_url('assets/images/banner/tool-banner.jpg') }}')">
+        <div class="breadcrumb" style="background-image:url('{{ set_url('assets/images/banner/tool-banner-main.jpg') }}')">
             <div class="breadcrumb-inner">
                 <h1 style="color: #000">QR Generator</h1>
                 <div class="breadcrumb-inner-wrapper">
@@ -72,17 +78,47 @@
                 <h2>Generate QR Code</h2>
                 <form id="qr-form" enctype="multipart/form-data">
                     @csrf
-                    <label for="url">Url<span class="required">*</span></label>
-                    <input type="text" name="url" id="url" oninput="$('.error_message').text('')"
-                        placeholder="Enter your url" />
-                    <span class="error_message"></span>
+                    <label for="">QR Type</label>
+                    <select id="qr_type">
+                        <option value="url">URL</option>
+                        <option value="wifi">Wifi</option>
+                    </select>
+
+
+                    <div id="url_box">
+                        <label for="url">Url<span class="required">*</span></label>
+                        <input type="text" id="url"
+                            placeholder="Enter your url" />
+                        <span class="error_message" id="url_error"></span>
+                    </div>
+
+                    <div id="wifi_box" style="display: none;">
+                        <label for="url">Wifi Name (SSID)<span class="required">*</span></label>
+                        <input type="text" id="ssid"
+                            placeholder="Enter your Wifi Name (SSID)" />
+                        <span class="error_message" id="ssid_error"></span>
+
+                        <label for="password">Wifi Password<span class="required">*</span></label>
+                        <input type="text" id="password"
+                            placeholder="Enter your Wifi Password" />
+                        <span class="error_message" id="password_error"></span>
+
+                        <label for="security">Security<span class="required">*</span></label>
+                        <select id="security">
+                            <option value="WPA">WPA/WPA2</option>
+                            <option value="WEP">WEP</option>
+                            <option value="nopass">No Password</option>
+                        </select>
+                        <span class="error_message" id="ssid_error"></span>
+                    </div>
+                  
 
                     <label for="logo">Logo<span> (Optional)</span></label>
-                    <input type="file" name="logo" id="logo" accept="image/png, image/jpeg" />
+                    <input type="file" id="logo" accept="image/png, image/jpeg" />
                     <span class="error_message"></span>
 
                     <label for="color">Color<span> (Optional)</span></label>
-                    <input type="color" name="color" id="color" value="#000000" />
+                    <input type="color" id="color" value="#000000" />
                     <span class="error_message"></span>
 
                     <div class="gpa-button-wrapper">
@@ -120,8 +156,20 @@
                 // let token = $('meta[name="csrf-token"]').attr('content');
                 // let url = $('#url').val();
 
-                let formData = new FormData(this);
-                console.log('formData:',formData);
+                let formData = new FormData();
+
+                formData.append('_token',"{{ csrf_token() }}");
+                formData.append('type',$('#qr_type').val());
+                formData.append('color',$('#color').val());
+                formData.append('logo',$('#logo')[0].files[0]);
+
+                if($('#qr_type').val() === 'wifi'){
+                    formData.append('ssid', $('#ssid').val());
+                    formData.append('password',$('#password').val());
+                    formData.append('security',$('#security').val());
+                }else{
+                    formData.append('url', $('#url').val());
+                }
 
                 $.ajax({
                     url: "{{ route('tool.qr-code.submit') }}",
@@ -171,6 +219,17 @@
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
+            });
+
+            //QR Type Dropdown
+            $('#qr_type').change(function(){
+                if($(this).val() === 'wifi'){
+                    $('#url_box').hide();
+                    $('#wifi_box').show();
+                }else{
+                    $('#url_box').show();
+                    $('#wifi_box').hide();
+                }
             });
         });
     </script>

@@ -18,10 +18,26 @@ class ToolController extends Controller
 
     public function qrCodeSubmit(Request $request){
         $request->validate([
-            'url' => 'required|url',
+            'type' => 'required|in:url,wifi',
+            'url' => 'required_if:type,url|url',
+            'ssid' => 'required_if:type,wifi',
+            'password' => 'nullable',
+            'security' => 'required_if:type,wifi|in:WPA,WEP,nopass',
             'color' => 'nullable|regex:/^#[0-9A-Fa-f]{6}$/',
             'logo' => 'nullable|image|mimes:png,jpg,jpeg|max:1024'
         ]);
+
+        //QR Data
+        if($request->type === 'wifi'){
+            $qrData = sprintf(
+                'WIFI:T:%s;S:%s;P:%s;H:false;;',
+                $request->security,
+                addslashes($request->ssid),
+                addslashes($request->password)
+            );
+        }else{
+            $qrData = $request->url;
+        }
 
         //Logo
         $logoPath = public_path('assets/images/logo.png');
@@ -45,7 +61,7 @@ class ToolController extends Controller
             ->errorCorrection('H')
             ->color($color[0],$color[1],$color[2])
             ->merge($logoPath,0.18,true)
-            ->generate($request->url);
+            ->generate($qrData);
 
         return response()->json([
             'qr' => 'data:image/png;base64,'.base64_encode($qr)

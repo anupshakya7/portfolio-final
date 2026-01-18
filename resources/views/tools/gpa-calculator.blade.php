@@ -1,7 +1,7 @@
 @extends('layout.web')
 @section('content')
 <section id="blog-breadcrumb-section">
-    <div class="breadcrumb" style="background-image:url('{{ set_url('assets/images/banner/tool-banner.jpg') }}')">
+    <div class="breadcrumb" style="background-image:url('{{ set_url('assets/images/banner/tool-banner-main.jpg') }}')">
         <div class="breadcrumb-inner">
             <h1 style="color: #000">GPA Calculator</h1>
             <div class="breadcrumb-inner-wrapper">

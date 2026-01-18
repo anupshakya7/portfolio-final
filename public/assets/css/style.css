@@ -930,3 +930,15 @@ footer p{
 .text-success{
     color: #01a6eb;
 }
+
+select{
+    flex-grow: 1;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    box-shadow: inset rgb(17 17 26 / 21%) 0px 4px 16px, inset rgb(17 17 26 / 0%) 0px 8px 24px, inset rgb(17 17 26 / 0%) 0px 16px 56px;
+    color: #000;
+    border: 1px solid grey;
+    font-weight: 500;
+    background-color: #fff;
+}
