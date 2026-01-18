@@ -48,7 +48,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Favicon -->
-    <link rel="icon" href="{{set_url('favicon.ico')}}">
+    <link rel="icon" href="{{set_url('assets/favicon/favicon.ico')}}">
     <link rel="apple-touch-icon" href="{{set_url('assets/favicon/apple-touch-icon.png')}}">
 
     <link rel="icon" href="{{set_url('assets/favicon/favicon-32x32.png')}}" sizes="32x32" type="image/png">
