@@ -55,16 +55,64 @@ class ToolController extends Controller
         $color = $request->color ? sscanf($request->color,'#%02x%02x%02x') : [0,0,0];
         //Color
 
+        $logoWithBg = $this->logoWithWhiteBg($logoPath);
+
         $qr = QrCode::format('png')
             ->size(500)
             ->margin(2)
             ->errorCorrection('H')
             ->color($color[0],$color[1],$color[2])
-            ->merge($logoPath,0.18,true)
+            ->mergeString(file_get_contents($logoWithBg),0.18,false)
             ->generate($qrData);
 
         return response()->json([
             'qr' => 'data:image/png;base64,'.base64_encode($qr)
         ]);
+    }
+
+    private function logoWithWhiteBg($logoPath){
+        $logo = imagecreatefromstring(file_get_contents($logoPath));
+
+        $logoW = imagesx($logo);
+        $logoH = imagesy($logo);
+
+        $padding = 50;
+
+        $bgW = $logoW + $padding;
+        $bgH = $logoH + $padding;
+
+        $canvas = imagecreatetruecolor($bgW,$bgH);
+
+        $white = imagecolorallocate($canvas, 255, 255, 255);
+        imagefilledrectangle($canvas, 0, 0, $bgW, $bgH, $white);
+
+        imagecopyresampled(
+            $canvas,
+            $logo,
+            $padding /2,
+            $padding /2,
+            0,
+            0,
+            $logoW,
+            $logoH,
+            $logoW,
+            $logoH
+        );
+
+        $dir = public_path('assets/tmp');
+
+        if(!file_exists($dir)){
+            mkdir($dir, 0755, true);
+        }
+
+        $filename = 'logo_white_bg_'.uniqid().'.png';
+        $path = $dir.'/'.$filename;
+
+        imagepng($canvas,$path);
+
+        imagedestroy($logo);
+        imagedestroy($canvas);
+
+        return $path;
     }
 }
