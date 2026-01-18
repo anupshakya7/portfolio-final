@@ -26,6 +26,10 @@
             align-content: center;
         }
 
+        i{
+            margin-right: 4px;
+        }
+
         .qr-result img {
             max-width: 350px;
             border: 1px solid grey;
@@ -122,7 +126,7 @@
                     <span class="error_message"></span>
 
                     <div class="gpa-button-wrapper">
-                        <button type="submit" id="qr_code_btn">Generate QR</button>
+                        <button type="submit" id="qr_code_btn"><i class="fa-solid fa-qrcode"></i>Generate QR</button>
                     </div>
                 </form>
             </div>
@@ -135,7 +139,7 @@
                     center.
                 </p>
                 <img src="{{ asset('assets/images/logo.png') }}" alt="QR Result">
-                <button id="download-qr"><i class="fa-solid fa-download" style="margin-right: 4px;"></i>Download QR</button>
+                <button id="download-qr"><i class="fa-solid fa-download"></i>Download QR</button>
                 <p>
                     Click the button above to download the QR code.
                 </p>
@@ -203,7 +207,7 @@
                         }
                     },
                     complete: function() {
-                        $('#qr_code_btn').text('Generate QR').prop('disabled', false);
+                        $('#qr_code_btn').html('<i class="fa-solid fa-qrcode"></i>Generate QR').prop('disabled', false);
                     }
                 });
             });
@@ -226,14 +230,21 @@
             //QR Type Dropdown
             $('#qr_type').change(function(){
                 $('.error_message').text('');
+
                 if($(this).val() === 'wifi'){
+                    clearBox('#url_box');
                     $('#url_box').hide();
                     $('#wifi_box').show();
                 }else{
+                    clearBox('#wifi_box');
                     $('#url_box').show();
                     $('#wifi_box').hide();
                 }
             });
+
+            function clearBox(box){
+                $(box).find('input, textarea').val('');
+            }
         });
     </script>
 @endpush
