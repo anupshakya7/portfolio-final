@@ -65,6 +65,10 @@ class ToolController extends Controller
             ->mergeString(file_get_contents($logoWithBg),0.18,false)
             ->generate($qrData);
 
+        if(file_exists($logoWithBg)){
+            unlink($logoWithBg);
+        }
+
         return response()->json([
             'qr' => 'data:image/png;base64,'.base64_encode($qr)
         ]);
