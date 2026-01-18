@@ -102,7 +102,7 @@
                             placeholder="Enter your Wifi Name (SSID)" />
                         <span class="error_message" id="ssid_error"></span>
 
-                        <label for="password">Wifi Password<span class="required">*</span></label>
+                        <label for="password">Wifi Password<span> (Optional)</span></label>
                         <input type="text" id="password"
                             placeholder="Enter your Wifi Password" />
                         <span class="error_message" id="password_error"></span>
