@@ -78,7 +78,7 @@
                 <h2>Generate QR Code</h2>
                 <form id="qr-form" enctype="multipart/form-data">
                     @csrf
-                    <label for="">QR Type</label>
+                    <label for="">QR Type<span class="required">*</span></label>
                     <select id="qr_type">
                         <option value="url">URL</option>
                         <option value="wifi">Wifi</option>
