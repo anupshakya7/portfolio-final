@@ -196,6 +196,8 @@
                             if(errors.url) $('#url').next('.error_message').text(errors.url);
                             else if(errors.logo) $('#logo').next('.error_message').text(errors.logo);
                             else if(errors.color) $('#color').next('.error_message').text(errors.color);
+                            else if(errors.ssid) $('#ssid').next('.error_message').text(errors.ssid);
+                            else if(errors.security) $('#security').next('.error_message').text(errors.security);
                         } else {
                             alert('Something went wrong');
                         }
@@ -223,6 +225,7 @@
 
             //QR Type Dropdown
             $('#qr_type').change(function(){
+                $('.error_message').text('');
                 if($(this).val() === 'wifi'){
                     $('#url_box').hide();
                     $('#wifi_box').show();

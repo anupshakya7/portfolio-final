@@ -24,7 +24,7 @@ class ToolController extends Controller
             'password' => 'nullable',
             'security' => 'required_if:type,wifi|in:WPA,WEP,nopass',
             'color' => 'nullable|regex:/^#[0-9A-Fa-f]{6}$/',
-            'logo' => 'nullable|image|mimes:png,jpg,jpeg|max:1024'
+            'logo' => 'nullable|max:1024'
         ]);
 
         //QR Data
