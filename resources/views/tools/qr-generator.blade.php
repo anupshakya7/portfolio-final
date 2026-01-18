@@ -78,7 +78,7 @@
                 <img src="{{ asset('assets/images/logo.png') }}" alt="QR Result">
                 <button id="download-qr"><i class="fa-solid fa-download" style="margin-right: 4px;"></i>Download QR</button>
                 <p>
-                    Tip: Right-click the QR code to save or share it easily.
+                    Click the button above to download the QR code.
                 </p>
             </div>
         </div>
