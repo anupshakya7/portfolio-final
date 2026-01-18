@@ -1,4 +1,6 @@
 @extends('layout.web')
+@section('title', 'Free QR Code Generator Online | URL, WiFi, Text & Logo QR')
+@section('description', 'Generate free QR codes instantly for URLs, WiFi, text, email & more. Customize colors, add logo, download high-quality QR codes online.')
 @push('css')
     <style>
         #qr-form{
@@ -59,6 +61,13 @@
 
         #download-qr:hover{
             background-color: #2c68a0;
+        }
+
+        @media (max-width: 935px){
+            .blog-single-container p{
+                padding: 0px;
+                text-align: center;
+            }
         }
         
     </style>
