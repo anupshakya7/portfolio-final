@@ -1,6 +1,19 @@
 @extends('layout.web')
 @push('css')
     <style>
+        #qr-form{
+            gap: 3px;
+        }
+
+        .gpa-button-wrapper{
+            margin-top: 20px;
+        }
+
+        .required{
+            color: #b10707;
+            margin: 0px 5px;
+        }
+
         .qr-result {
             display: none;
             justify-content: center;
@@ -17,7 +30,6 @@
 
         .error_message {
             color: #b10707;
-            margin-top: -15px;
             margin-left: 5px;
             font-size: 14px;
         }
@@ -38,6 +50,7 @@
         #download-qr:hover{
             background-color: #2c68a0;
         }
+        
     </style>
 @endpush
 @section('content')
@@ -57,11 +70,21 @@
         <div class="blog-single-container">
             <div class="gpa-converter-wrapper">
                 <h2>Generate QR Code</h2>
-                <form id="qr-form">
+                <form id="qr-form" enctype="multipart/form-data">
                     @csrf
-                    <input type="text" name="url" id="link" oninput="$('.error_message').text('')"
-                        placeholder="Enter your link" />
+                    <label for="url">Url<span class="required">*</span></label>
+                    <input type="text" name="url" id="url" oninput="$('.error_message').text('')"
+                        placeholder="Enter your url" />
                     <span class="error_message"></span>
+
+                    <label for="logo">Logo<span> (Optional)</span></label>
+                    <input type="file" name="logo" id="logo" accept="image/png, image/jpeg" />
+                    <span class="error_message"></span>
+
+                    <label for="color">Color<span> (Optional)</span></label>
+                    <input type="color" name="color" id="color" value="#000000" />
+                    <span class="error_message"></span>
+
                     <div class="gpa-button-wrapper">
                         <button type="submit" id="qr_code_btn">Generate QR</button>
                     </div>
@@ -93,16 +116,19 @@
             $('#qr-form').submit(function(e) {
                 e.preventDefault();
                 $('.qr-result').css('display', 'none');
-                let token = $('meta[name="csrf-token"]').attr('content');
-                let url = $('#link').val();
+                $('.error_message').text('');
+                // let token = $('meta[name="csrf-token"]').attr('content');
+                // let url = $('#url').val();
+
+                let formData = new FormData(this);
+                console.log('formData:',formData);
 
                 $.ajax({
                     url: "{{ route('tool.qr-code.submit') }}",
                     type: "POST",
-                    data: {
-                        _token: token,
-                        url: url
-                    },
+                    data: formData,
+                    contentType: false,
+                    processData: false,
                     beforeSend: function() {
                         $('#qr_code_btn').text('Generating...').prop('disabled', true);
                     },
@@ -114,9 +140,14 @@
                     },
                     error: function(xhr) {
                         $('.qr-result').css('display', 'none');
+                        
                         if (xhr.status === 422) {
+                            
+                            const errors = xhr.responseJSON.errors;
                             $('.error_message').text('');
-                            $('.error_message').text(xhr.responseJSON.errors.url);
+                            if(errors.url) $('#url').next('.error_message').text(errors.url);
+                            else if(errors.logo) $('#logo').next('.error_message').text(errors.logo);
+                            else if(errors.color) $('#color').next('.error_message').text(errors.color);
                         } else {
                             alert('Something went wrong');
                         }
