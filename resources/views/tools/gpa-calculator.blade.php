@@ -7,6 +7,10 @@
             i {
                 margin-right: 4px;
             }
+
+            section {
+                padding-top: 10vh;
+            }
         </style>
     @endpush
 @section('content')

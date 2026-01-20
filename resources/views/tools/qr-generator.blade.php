@@ -6,6 +6,10 @@
         #qr-form{
             gap: 3px;
         }
+        
+        section {
+            padding-top: 10vh;
+        }
 
         .gpa-button-wrapper{
             margin-top: 20px;
