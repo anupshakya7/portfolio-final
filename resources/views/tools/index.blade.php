@@ -69,7 +69,7 @@
 @section('content')
     <!-- Breadcrumb -->
     @include('partials.breadcrumb', ['mainTitle' => 'Tools'])
-    <section id="blog-list-section">
+    <section id="blog-list-section" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
         <div class="blog-single-container">
             @forelse($tools as $tool)
             <div class="details-container color-container equal-height blog_item">

@@ -16,7 +16,7 @@
 @section('content')
     <!-- Breadcrumb -->
     @include('partials.breadcrumb',['mainTitle' => 'GPA Calculator','parentTitle' => 'Tools','parentUrl' => route('tool.index'),'slug' => 'gpa-converter'])
-    <section id="blog-list-section">
+    <section id="blog-list-section" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
         <div class="blog-single-container">
             <div class="gpa-converter-wrapper">
                 <h2>GPA to Percentage Tool</h2>

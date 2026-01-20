@@ -83,7 +83,7 @@
 @section('content')
     <!-- Breadcrumb -->
      @include('partials.breadcrumb',['mainTitle' => 'QR Code','parentTitle' => 'Tools','parentUrl' => route('tool.index'),'slug' => 'qr-code-generator'])
-    <section id="blog-list-section">
+    <section id="blog-list-section" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
         <div class="blog-single-container">
             <div class="gpa-converter-wrapper">
                 <h2>Generate QR Code</h2>
