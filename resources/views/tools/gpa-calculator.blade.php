@@ -17,7 +17,7 @@
             <div class="gpa-converter-wrapper">
                 <h2>GPA to Percentage Tool</h2>
                 <form>
-                    <input type="text" id="gpa_text" placeholder="Enter your GPA" />
+                    <input type="number" id="gpa_text" placeholder="Enter your GPA" />
                     <div class="gpa-button-wrapper">
                         <button type="button" id="gpa_convert_btn"><i class="fas fa-exchange"></i>Convert</button>
                     </div>
