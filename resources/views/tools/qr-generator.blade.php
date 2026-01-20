@@ -73,18 +73,8 @@
     </style>
 @endpush
 @section('content')
-    <section id="blog-breadcrumb-section">
-        <div class="breadcrumb" style="background-image:url('{{ set_url('assets/images/banner/tool-banner-main.jpg') }}')">
-            <div class="breadcrumb-inner">
-                <h1 style="color: #000">QR Generator</h1>
-                <div class="breadcrumb-inner-wrapper">
-                    <a href="{{ route('home') }}" style="color: #000"><span><i class="fa-solid fa-house"></i>Home</span></a>
-                    <span> - </span>
-                    <span>QR Generator</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Breadcrumb -->
+     @include('partials.breadcrumb',['mainTitle' => 'QR Code','parentTitle' => 'Tools','parentUrl' => route('tool.index'),'slug' => 'qr-code'])
     <section id="blog-list-section">
         <div class="blog-single-container">
             <div class="gpa-converter-wrapper">

@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Page;
+use App\Toolset;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ToolController extends Controller
 {
+    public function index(){
+        $tools = Toolset::where('status','PUBLISHED')->get();
+
+        return view('tools.index',compact('tools'));
+    }
+
     public function gpaCalculator(){
         return view('tools.gpa-calculator');
     }
@@ -25,6 +32,9 @@ class ToolController extends Controller
             'security' => 'required_if:type,wifi|in:WPA,WEP,nopass',
             'color' => 'nullable|regex:/^#[0-9A-Fa-f]{6}$/',
             'logo' => 'nullable|max:1024'
+        ],[
+            'url.required_if' => 'The URL field is required.',
+            'ssid.required_if' => 'Wifi name (SSID) is required'
         ]);
 
         //QR Data

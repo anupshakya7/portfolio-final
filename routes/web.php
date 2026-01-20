@@ -26,13 +26,15 @@ Route::get('/',[PortfolioController::class,'index'])->name('home');
 Route::resource('blog',BlogController::class)->only(['index','show']); 
 
 //Tools
-Route::prefix('tool')->group(function(){
+Route::prefix('tools')->name('tool.')->group(function(){
+    Route::get('/', [ToolController::class,'index'])->name('index');    
+
     //GPA Converter
-    Route::get('/gpa-calculator',[ToolController::class,'gpaCalculator'])->name('tool.gpa-calculator');
+    Route::get('/gpa-calculator',[ToolController::class,'gpaCalculator'])->name('gpa-calculator');
 
     //Generate QR Code
-    Route::get('/qr-code',[ToolController::class,'qrCode'])->name('tool.qr-code');
-    Route::post('/qr-code-generate',[ToolController::class,'qrCodeSubmit'])->name('tool.qr-code.submit');
+    Route::get('/qr-code',[ToolController::class,'qrCode'])->name('qr-code');
+    Route::post('/qr-code-generate',[ToolController::class,'qrCodeSubmit'])->name('qr-code.submit');
 });
 
 Route::prefix('admin')->group(function(){
