@@ -74,7 +74,7 @@
 @endpush
 @section('content')
     <!-- Breadcrumb -->
-     @include('partials.breadcrumb',['mainTitle' => 'QR Code','parentTitle' => 'Tools','parentUrl' => route('tool.index'),'slug' => 'qr-code'])
+     @include('partials.breadcrumb',['mainTitle' => 'QR Code','parentTitle' => 'Tools','parentUrl' => route('tool.index'),'slug' => 'qr-code-generator'])
     <section id="blog-list-section">
         <div class="blog-single-container">
             <div class="gpa-converter-wrapper">

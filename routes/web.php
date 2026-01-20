@@ -33,7 +33,7 @@ Route::prefix('tools')->name('tool.')->group(function(){
     Route::get('/gpa-calculator',[ToolController::class,'gpaCalculator'])->name('gpa-calculator');
 
     //Generate QR Code
-    Route::get('/qr-code',[ToolController::class,'qrCode'])->name('qr-code');
+    Route::get('/qr-code-generator',[ToolController::class,'qrCode'])->name('qr-code');
     Route::post('/qr-code-generate',[ToolController::class,'qrCodeSubmit'])->name('qr-code.submit');
 });
 
