@@ -8,7 +8,7 @@
         }
 
         .blog-single-container h4{
-            padding-left: 0px;
+            padding-left: 0px; 
         }
         
         section {
