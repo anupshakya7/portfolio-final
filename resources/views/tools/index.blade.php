@@ -9,6 +9,10 @@
                 padding-top: 10vh;
             }
 
+            .blog_item{
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            }
+
             .blog-single-container{
                 display: flex;
                 gap: 20px;
@@ -35,6 +39,18 @@
 
             .blog-footer {
                 justify-content: center;
+            }
+
+            @media(max-width: 999px){
+                .blog-single-container{
+                    flex-wrap: wrap;
+                }
+            }
+
+            @media(max-width: 792px){
+                .blog-single-container{
+                    flex-direction: column;
+                }
             }
         </style>
     @endpush
