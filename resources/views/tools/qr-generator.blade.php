@@ -6,6 +6,10 @@
         #qr-form{
             gap: 3px;
         }
+
+        .blog-single-container h4{
+            padding-left: 0px;
+        }
         
         section {
             padding-top: 10vh;
