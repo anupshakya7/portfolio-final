@@ -13,9 +13,21 @@
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
 
+            .btn{
+                padding: 5px 8px;
+            }
+
+            .btn:hover{
+                color: #fff;
+            }
+
             .blog-single-container{
                 display: flex;
                 gap: 20px;
+            }
+
+            .blog-single-container a:hover{
+                color: #fff;
             }
 
             i {
@@ -66,10 +78,10 @@
                 </div>
                 <h2 class="blogs-sub-title project-title equal-height-title">{{$tool->title}}</h2>
                 <div class="btn-container blog-footer">
-                    <button onclick="window.location.href = '{{url('/tools/'.$tool->slug)}}'" class="btn btn-color-2 project-btn">
-                        <i class="fas fa-tools"></i>
+                    <a href="{{url('/tools/'.$tool->slug)}}" class="btn btn-color-2 project-btn">
+                            <i class="fas fa-tools"></i>
                         View Tool
-                    </button>
+                    </a>
                 </div>
             </div>
             @empty
