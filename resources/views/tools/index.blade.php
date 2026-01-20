@@ -43,7 +43,7 @@
     @include('partials.breadcrumb', ['mainTitle' => 'Tools'])
     <section id="blog-list-section">
         <div class="blog-single-container">
-            @foreach($tools as $tool)
+            @forelse($tools as $tool)
             <div class="details-container color-container equal-height blog_item">
                 <div class="article-container equal-height-item">
                     <img src="{{ set_storage_url($tool->icon) }}" alt="Tool Icon" class="project-img" />
@@ -56,7 +56,12 @@
                     </button>
                 </div>
             </div>
-            @endforeach
+            @empty
+                <div>
+                    <h4>No Tools Found</h4>
+                    <p>Please check back later.</p>
+                </div>
+            @endforelse
         </div>
     </section>
 @endsection
