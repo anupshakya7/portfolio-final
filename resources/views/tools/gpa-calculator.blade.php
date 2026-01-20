@@ -91,7 +91,7 @@
                         $('#gpa_ans').removeClass('text-success');
                         $('#gpa_ans').addClass('text-danger');
                         $('#gpa_ans').text(
-                            'The range of GPA for students is 0 to 4, so please, covert your GPA within the range, i.e 0 to 4'
+                            'The range of GPA for students is 0 to 4, so please, convert your GPA within the range, i.e 0 to 4'
                             );
                     }
                 } else {
