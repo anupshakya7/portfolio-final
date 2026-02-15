@@ -1,6 +1,30 @@
 @extends('layout.web')
 @section('title','Blog - Latest Articles, Insights & Updates | Anup Shakya')
 @section('description','Explore our latest blog posts covering tips, tutorials, industry insights, and updates to keep you informed and inspired. Stay ahead with expert content.')
+@push('css')
+<style>
+    .blogs-details-container{
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .blog_item{
+        width: auto;
+    }
+
+    @media(max-width: 1000px){
+        .blogs-details-container{
+           grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media(max-width: 680px){
+        .blogs-details-container{
+            display: flex;
+        }
+    }
+</style>
+@endpush
 @section('content')
 <section id="blog-breadcrumb-section">
     <div class="breadcrumb" style="background-image:url({{ set_url('assets/images/banner/blog-banner1.gif') }})">

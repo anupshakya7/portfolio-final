@@ -1,13 +1,30 @@
 @extends('layout.web')
+@push('css')
+<style>
+    .blog-single-container a{
+        color:blue;
+        text-decoration: underline;
+    }
+
+    .blog-single-container a:hover{
+        color:blue;
+        text-decoration: none;
+    }
+
+    .breadcrumb-inner{
+        backdrop-filter: blur(3px);
+    }
+</style>
+@endpush
 @section('content')
 <section id="blog-breadcrumb-section">
     <div class="breadcrumb" style="background-image:url({{ set_storage_url($single->banner) }})">
         <div class="breadcrumb-inner">
-            <h1 style="color: #000">{{$single->title}}</h1>
-            <div class="breadcrumb-inner-wrapper">
-                <a href="{{ route('home') }}" style="color: #000"><span><i class="fa-solid fa-house"></i>Home</span></a>
+            <h1 style="color: #fff">{{$single->title}}</h1>
+            <div class="breadcrumb-inner-wrapper" style="color: #fff">
+                <a href="{{ route('home') }}" style="color: #fff"><span><i class="fa-solid fa-house"></i>Home</span></a>
                 <span> - </span>
-                <a href="{{ route('blog.index') }}" style="color: #000">Blogs</span></a>
+                <a href="{{ route('blog.index') }}" style="color: #fff">Blogs</span></a>
                 <span> - </span>
                 <span>{{$single->title}}</span>
             </div>
