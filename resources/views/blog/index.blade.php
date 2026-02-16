@@ -2,67 +2,67 @@
 @section('title', 'Blog - Latest Articles, Insights & Updates | Anup Shakya')
 @section('description', 'Explore our latest blog posts covering tips, tutorials, industry insights, and updates to keep
     you informed and inspired. Stay ahead with expert content.')
-    @push('css')
-        <style>
+@push('css')
+    <style>
+        .blogs-details-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .blog_item {
+            width: auto;
+        }
+
+        .btn {
+            padding: 10px 8px;
+        }
+
+        .btn:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .blog-single-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .blog-single-container a:hover {
+            color: #fff;
+        }
+
+        i {
+            margin-right: 4px;
+        }
+
+        /* .article-container {
+            text-align: none;
+            justify-content: center;
+        }
+
+        .article-container img {
+            width: 100px;
+            height: 100px;
+            filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 4px 12px);
+        } */
+
+        .project-img {
+            border-radius: 0px;
+        }
+
+        @media(max-width: 1000px) {
             .blogs-details-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
+        }
 
-            .blog_item {
-                width: auto;
-            }
-
-            .btn {
-                padding: 10px 8px;
-            }
-
-            .btn:hover {
-                color: #fff;
-                text-decoration: none;
-            }
-
-            .blog-single-container {
+        @media(max-width: 680px) {
+            .blogs-details-container {
                 display: flex;
-                gap: 20px;
             }
-
-            .blog-single-container a:hover {
-                color: #fff;
-            }
-
-            i {
-                margin-right: 4px;
-            }
-
-            .article-container {
-                text-align: none;
-                justify-content: center;
-            }
-
-            .article-container img {
-                width: 100px;
-                height: 100px;
-                filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 4px 12px);
-            }
-
-            .project-img {
-                border-radius: 0px;
-            }
-
-            @media(max-width: 1000px) {
-                .blogs-details-container {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-            @media(max-width: 680px) {
-                .blogs-details-container {
-                    display: flex;
-                }
-            }
-        </style>
-    @endpush
+        }
+    </style>
+@endpush
 @section('content')
     <section id="blog-breadcrumb-section">
         <div class="breadcrumb" style="background-image:url({{ set_url('assets/images/banner/blog-banner1.gif') }})">
@@ -89,6 +89,7 @@
                     <div class="article-container equal-height-item">
                         <img src="{{ $blogImage }}" alt="Hello World" class="project-img" />
                     </div>
+                    <span class="badge">{{optional($blog->blogCategory)->title}}</span>
                     <h2 class="blogs-sub-title project-title equal-height-title">{{ $blog->title }}</h2>
                     {{-- <p class="blog-description equal-height-description">{{Str::limit($blog->excerpt,100)}}</p> --}}
                     <div class="btn-container blog-footer">

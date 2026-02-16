@@ -190,6 +190,7 @@
             <div class="article-container equal-height-item">
                 <img src="{{ $blogImage }}" alt="Hello World" class="project-img"/>
             </div>
+            <span class="badge">{{optional($blog->blogCategory)->title}}</span>
             <h2 class="blogs-sub-title project-title equal-height-title">{{$blog->title}}</h2>
             {{-- <p class="blog-description equal-height-description">{{Str::limit($blog->excerpt,100)}}</p> --}}
             <div class="btn-container blog-footer">

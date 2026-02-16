@@ -584,8 +584,9 @@ article .icon{
 .project-img{
     border-radius: 2rem;
     width: 90%;
-    height: 90%;
+    height: 250px;
     object-fit:contain;
+    margin-bottom: 20px;
 }
 
 .project-title{
@@ -947,4 +948,13 @@ select{
     border: 1px solid grey;
     font-weight: 500;
     background-color: #fff;
+}
+
+.badge{
+    background-color: #e11c1c;
+    margin: 10px 0px;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
