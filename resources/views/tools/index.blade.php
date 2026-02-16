@@ -30,7 +30,7 @@
                 color: #fff;
             }
 
-            i {
+            i{
                 margin-right: 4px;
             }
 
