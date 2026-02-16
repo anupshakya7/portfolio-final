@@ -34,7 +34,11 @@ Route::prefix('tools')->name('tool.')->group(function(){
 
     //Generate QR Code
     Route::get('/qr-code-generator',[ToolController::class,'qrCode'])->name('qr-code');
-    Route::post('/qr-code-generate',[ToolController::class,'qrCodeSubmit'])->name('qr-code.submit');
+    Route::post('/qr-code-generate',[ToolController::class,'qrCodeSubmit'])->name('qr-code.submit')->middleware('throttle:5,1');
+
+    //Sitemap Generator
+    Route::get('/sitemap-generator',[ToolController::class, 'siteMap'])->name('sitemap.generate');
+    Route::post('/sitemap-generate',[ToolController::class, 'siteMapSubmit'])->name('sitemap.generate.submit')->middleware('throttle:5,1');
 });
 
 Route::prefix('admin')->group(function(){

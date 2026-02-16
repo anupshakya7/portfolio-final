@@ -2,13 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sitemap;
 use App\Page;
+use App\Services\QRCode\QRService;
+use App\Services\SeoService\SitemapService;
 use App\Toolset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ToolController extends Controller
 {
+    protected $qrService;
+    protected $sitemapService;
+
+    public function __construct(QRService $qrService, SitemapService $sitemapService){
+        $this->qrService = $qrService;
+        $this->sitemapService = $sitemapService;
+    }
+
     public function index(){
         $tools = Toolset::where('status','PUBLISHED')->get();
 
@@ -65,7 +77,7 @@ class ToolController extends Controller
         $color = $request->color ? sscanf($request->color,'#%02x%02x%02x') : [0,0,0];
         //Color
 
-        $logoWithBg = $this->logoWithWhiteBg($logoPath);
+        $logoWithBg = $this->qrService->createLogoWithWhiteBg($logoPath);
 
         $qr = QrCode::format('png')
             ->size(500)
@@ -84,49 +96,50 @@ class ToolController extends Controller
         ]);
     }
 
-    private function logoWithWhiteBg($logoPath){
-        $logo = imagecreatefromstring(file_get_contents($logoPath));
+    //Sitemap 
+    public function sitemap(){
+        return view('tools.sitemap');
+    }
 
-        $logoW = imagesx($logo);
-        $logoH = imagesy($logo);
+    public function sitemapSubmit(Request $request){
+        $request->validate([
+            'website_url' => 'required|url'
+        ]);
 
-        $padding = 50;
+        $baseUrl = rtrim($request->website_url,'/');
 
-        $bgW = $logoW + $padding;
-        $bgH = $logoH + $padding;
-
-        $canvas = imagecreatetruecolor($bgW,$bgH);
-
-        $white = imagecolorallocate($canvas, 255, 255, 255);
-        imagefilledrectangle($canvas, 0, 0, $bgW, $bgH, $white);
-
-        imagecopyresampled(
-            $canvas,
-            $logo,
-            $padding /2,
-            $padding /2,
-            0,
-            0,
-            $logoW,
-            $logoH,
-            $logoW,
-            $logoH
-        );
-
-        $dir = public_path('assets/tmp');
-
-        if(!file_exists($dir)){
-            mkdir($dir, 0755, true);
+        if(!$this->sitemapService->isValidPublicUrl($baseUrl)){
+            return back()->with('error', 'Invalid or private URL.');
         }
 
-        $filename = 'logo_white_bg_'.uniqid().'.png';
-        $path = $dir.'/'.$filename;
+        $urls = $this->sitemapService->crawl($baseUrl);
 
-        imagepng($canvas,$path);
+        $urls = collect($urls)->map(function($url) use($baseUrl){
+            $url = preg_replace('/#.*$/','',$url);
 
-        imagedestroy($logo);
-        imagedestroy($canvas);
+            if($url !== $baseUrl){
+                $url = rtrim($url, '/');
+            }
 
-        return $path;
+            return $url;
+        })
+        ->unique()
+        ->values()
+        ->all();
+        
+        $sitemap = Sitemap::create([
+            'website_url' => $baseUrl,
+            'urls' => json_encode($urls)
+        ]);
+
+        $xml = $this->sitemapService->generateXml($urls);
+
+        $fileName = 'sitemap_'.$sitemap->id.'.xml';
+        Storage::disk('public')->put('sitemap/'.$fileName, $xml);
+        
+        return asset('storage/sitemap/'. $fileName);
+        // return view('sitemap.result',[
+        //     'file' => asset()
+        // ]);
     }
 }

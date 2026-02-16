@@ -22,10 +22,10 @@
             text-decoration: none;
         }
 
-        .blog-single-container {
+        /* .blog-single-container {
             display: flex;
             gap: 20px;
-        }
+        } */
 
         .blog-single-container a:hover {
             color: #fff;
