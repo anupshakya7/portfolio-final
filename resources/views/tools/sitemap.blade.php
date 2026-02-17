@@ -49,7 +49,7 @@
             }
 
             .sitemap-container {
-                width: 90%;
+                width: 100%;
                 display: flex;
                 justify-content: space-around;
                 border: 1px solid #808080;
