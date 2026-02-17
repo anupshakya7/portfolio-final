@@ -138,7 +138,7 @@ class ToolController extends Controller
         Storage::disk('public')->put('sitemap/'.$fileName, $xml);
         
         return response()->json([
-            'file' => asset('storage/sitemap/'. $fileName)
+            'file' => asset('public/storage/sitemap/'. $fileName)
         ]);
     }
 }
