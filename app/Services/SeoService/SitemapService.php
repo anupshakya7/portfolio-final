@@ -84,7 +84,7 @@ class SitemapService
         $writer->setIndent(true);
 
         $writer->startElement('urlset');
-        $writer->writeAttribute('xmlns','http://www.sitemaps.org/schemas/sitemap/0.9');
+        $writer->writeAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
 
         $now = now()->toAtomString();
 
@@ -119,7 +119,7 @@ class SitemapService
             // $xml .= '</url>';
             $writer->startElement('url');
 
-            $writer->writeElement('loc',$url);
+            $writer->writeElement('loc', $url);
             $writer->writeElement('lastmod', $now);
             $writer->writeElement('priority', $priority);
 
@@ -160,6 +160,10 @@ class SitemapService
 
             $url = preg_replace('/#.*$/', '', $url);
             $url = strtok($url, '?');
+
+            if (preg_match('/\.(pdf|jpg|jpeg|png|gif|webp|svg|zip|rar|doc|docx|xls|xlsx|ppt|pptx)$/i', $url)) {
+                continue;
+            }
 
             if (strpos($url, $baseUrl) === 0) {
                 $links[] = $url;
