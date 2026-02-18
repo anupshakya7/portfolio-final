@@ -39,7 +39,7 @@
 
 
             .sitemap-result {
-                display: flex;
+                display: none;
                 justify-content: center;
                 align-content: center;
             }
