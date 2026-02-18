@@ -83,8 +83,9 @@
 @section('content')
     <!-- Breadcrumb -->
      @include('partials.breadcrumb',['mainTitle' => 'QR Code','parentTitle' => 'Tools','parentUrl' => route('tool.index'),'slug' => 'qr-code-generator'])
-    <section id="blog-list-section" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+     <section id="blog-list-section" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
         <div class="blog-single-container">
+            <p>Create QR codes for URLs or WiFi networks in seconds. Customize colors, add your logo, and design QR codes that are both attractive and fully scannable. Fast, Simple & Reliable No technical skills required — just enter your details, personalize the design, and download your QR code instantly. Perfect for business, events, marketing materials, or personal use.Make sharing information easier and more professional with QR codes that match your style and branding.</p>
             <div class="gpa-converter-wrapper">
                 <h2>Generate QR Code</h2>
                 <form id="qr-form" enctype="multipart/form-data">
