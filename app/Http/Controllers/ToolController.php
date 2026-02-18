@@ -134,7 +134,7 @@ class ToolController extends Controller
 
         $xml = $this->sitemapService->generateXml($urls);
 
-        $fileName = 'sitemap_'.$sitemap->id.'.xml';
+        $fileName = 'sitemap_'.uniqid().'.xml';
         Storage::disk('public')->put('sitemap/'.$fileName, $xml);
         
         return response()->json([
