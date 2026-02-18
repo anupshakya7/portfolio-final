@@ -12,8 +12,8 @@
             .blog-single-container h4 {
                 padding-left: 0px;
             }
-            
-            .blog-single-container p{
+
+            .blog-single-container p {
                 text-align: center;
             }
 
@@ -25,7 +25,7 @@
                 margin-top: 20px;
             }
 
-            
+
             .required {
                 color: #b10707;
                 margin: 0px 5px;
@@ -39,7 +39,7 @@
 
 
             .sitemap-result {
-                display: none;
+                display: flex;
                 justify-content: center;
                 align-content: center;
             }
@@ -101,6 +101,20 @@
                     text-align: center;
                 }
             }
+
+            @media (max-width: 604px) {
+                .sitemap-container {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .sitemap-btn {
+                    display: flex;
+                    flex-wrap:wrap;
+                    justify-content: center;
+                    gap: 10px;
+                }
+            }
         </style>
     @endpush
 @section('content')
@@ -115,8 +129,7 @@
         <div class="blog-single-container">
             <div class="gpa-converter-wrapper">
                 <h2>Generate Sitemap</h2>
-                <form id="sitemap-form"
-                    enctype="multipart/form-data">
+                <form id="sitemap-form" enctype="multipart/form-data">
                     @csrf
                     <div id="url_box">
                         <label for="website_url">Website Url<span class="required">*</span></label>
@@ -137,9 +150,10 @@
                     or download the XML file to submit to search engines like Google or Bing.
                 </p>
                 <div class="sitemap-container">
-                    <p id="sitemap-url"></p>
-                    <div>
-                        <a class="tool-btn" target="__blank" id="view-sitemap"><i class="fa-solid fa-eye"></i>View Sitemap</a>
+                    <p id="sitemap-url">Sitemap.xml</p>
+                    <div class="sitemap-btn">
+                        <a class="tool-btn" target="__blank" id="view-sitemap"><i class="fa-solid fa-eye"></i>View
+                            Sitemap</a>
                         <button class="tool-btn" id="download-sitemap"><i class="fa-solid fa-download"></i>Download
                             Sitemap</button>
                     </div>
@@ -153,67 +167,70 @@
     </section>
 @endsection
 @push('script')
-<script>
-    $(document).ready(function(){
-        let sitemap = "";
+    <script>
+        $(document).ready(function() {
+            let sitemap = "";
 
-        $('#sitemap-form').submit(function(e){
-            e.preventDefault();
-            $('.sitemap-result').css('display', 'none');
-            $('.error_message').text('');
+            $('#sitemap-form').submit(function(e) {
+                e.preventDefault();
+                $('.sitemap-result').css('display', 'none');
+                $('.error_message').text('');
 
-            let formData = new FormData();
+                let formData = new FormData();
 
-            formData.append('_token',"{{ csrf_token() }}");
-            formData.append('website_url',$('#website_url').val());
+                formData.append('_token', "{{ csrf_token() }}");
+                formData.append('website_url', $('#website_url').val());
 
-            $.ajax({
-                url: "{{ route('tool.sitemap.generate.submit') }}",
-                type: "POST",
-                data: formData,
-                contentType: false,
-                processData: false,
-                beforeSend: function(){
-                    $('#sitemap_btn').text('Generating...').prop('disabled',true);
-                },
-                success: function(response){
-                    $('.sitemap-result #sitemap-url').text(response.file);
-                    $('.sitemap-result').css('display','flex');
-                    $('#view-sitemap').attr('href',response.file);
+                $.ajax({
+                    url: "{{ route('tool.sitemap.generate.submit') }}",
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function() {
+                        $('#sitemap_btn').text('Generating...').prop('disabled', true);
+                    },
+                    success: function(response) {
+                        // $('.sitemap-result #sitemap-url').text(response.file);
+                        $('.sitemap-result').css('display', 'flex');
+                        $('#view-sitemap').attr('href', response.file);
 
-                    sitemap = response.file;
-                },
-                error: function(xhr){
-                    $('.sitemap-result').css('display','none');
-                    $('#view-sitemap').attr('href','');
+                        sitemap = response.file;
+                    },
+                    error: function(xhr) {
+                        $('.sitemap-result').css('display', 'none');
+                        $('#view-sitemap').attr('href', '');
 
-                    if(xhr.status === 422){
-                        const errors = xhr.responseJSON.errors;
-                        $('.error_message').text('');
-                        if(errors.website_url) $('#website_url').next('.error_message').text(errors.website_url);
-                    }else{
-                        alert('Something went wrong');
+                        if (xhr.status === 422) {
+                            const errors = xhr.responseJSON.errors;
+                            $('.error_message').text('');
+                            if (errors.website_url) $('#website_url').next('.error_message')
+                                .text(errors.website_url);
+                        } else {
+                            alert('Something went wrong');
+                        }
+                    },
+                    complete: function() {
+                        $('#sitemap_btn').html(
+                            '<i class="fa-solid fa-sitemap"></i>Generate Sitemap').prop(
+                            'disabled', false);
                     }
-                },
-                complete: function(){
-                    $('#sitemap_btn').html('<i class="fa-solid fa-sitemap"></i>Generate Sitemap').prop('disabled', false);
+                })
+            });
+
+            $('#download-sitemap').click(function() {
+                if (!sitemap) {
+                    alert("Please generate Sitemap first!!!");
                 }
-            })
+
+                const a = document.createElement('a');
+                a.href = sitemap;
+                a.download = 'sitemap.xml';
+                document.body.appendChild(a);
+
+                a.click();
+                document.body.removeChild(a);
+            });
         });
-
-        $('#download-sitemap').click(function(){
-            if(!sitemap){
-                alert("Please generate Sitemap first!!!");
-            }
-
-            const a = document.createElement('a');
-            a.href = sitemap;
-            a.download = 'sitemap.xml';
-            document.body.appendChild(a);
-
-            a.click();
-            document.body.removeChild(a);
-        });
-    });
-</script>
+    </script>
 @endpush
