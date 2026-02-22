@@ -141,4 +141,13 @@ class ToolController extends Controller
             'file' => asset('public/storage/sitemap/'. $fileName)
         ]);
     }
+
+    //Robots
+    public function robot(){
+        return view('tools.robots');
+    }
+
+    public function robotSubmit(Request $request){
+        
+    }
 }

@@ -39,6 +39,10 @@ Route::prefix('tools')->name('tool.')->group(function(){
     //Sitemap Generator
     Route::get('/sitemap-generator',[ToolController::class, 'siteMap'])->name('sitemap.generate');
     Route::post('/sitemap-generate',[ToolController::class, 'siteMapSubmit'])->name('sitemap.generate.submit')->middleware('throttle:5,1');
+
+    //Robot Generator
+    Route::get('/robots-generator',[ToolController::class, 'robot'])->name('robots.index');
+    Route::get('/robots-generator/generate',[ToolController::class, 'robotGenerate'])->name('robots.generate');
 });
 
 Route::prefix('admin')->group(function(){
