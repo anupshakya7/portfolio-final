@@ -1,6 +1,7 @@
 @extends('layout.web')
 @section('title', 'Free QR Code Generator Online | URL, WiFi, Text & Logo QR')
-@section('description', 'Generate free QR codes instantly for URLs, WiFi, text, email & more. Customize colors, add
+@section('description',
+    'Generate free QR codes instantly for URLs, WiFi, text, email & more. Customize colors, add
     logo, download high-quality QR codes online.')
     @push('css')
         <style>
@@ -30,7 +31,7 @@
                 justify-content: center;
                 align-content: center;
                 border: 1px solid grey;
-                padding:10px;
+                padding: 10px;
                 border-radius: 10px;
                 margin: 20px 0px;
             }
@@ -45,9 +46,24 @@
                 font-size: 14px;
             }
 
-            #download-robots {
+            .user-agent-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 30px 20px;
+                flex-direction: column;
+                border: 1px solid #808080;
+                border-radius: 10px;
+            }
+
+            .user-agent-container div {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-tool {
                 display: inline;
-                background-color: #01a6eb;
                 color: #ffffff;
                 padding: 10px 13px;
                 border: none;
@@ -58,8 +74,34 @@
                 cursor: pointer;
             }
 
+            #download-robots {
+                background-color: #01a6eb;
+            }
+
             #download-robots:hover {
                 background-color: #2c68a0;
+            }
+
+            #add_useragent_btn {
+                float: right;
+            }
+
+            #remove_allow {
+                background-color: #dc2626;
+            }
+
+            #remove_allow:hover {
+                background-color: #b91c1c;
+            }
+
+            .gpa-converter-wrapper label {
+                margin-top: 7px;
+            }
+
+            .field-with-delete{
+                display:flex !important;
+                flex-direction: row !important; 
+                gap:10px;
             }
 
             @media (max-width: 935px) {
@@ -82,22 +124,58 @@
         <div class="blog-single-container">
             <div class="gpa-converter-wrapper">
                 <h2>Generate Robots.txt</h2>
-                <form id="robots-form" enctype="multipart/form-data">
-                    @csrf
-                    <label for="">QR Type<span class="required">*</span></label>
-                    <select id="qr_type">
-                        <option value="url">URL</option>
-                        <option value="wifi">Wifi</option>
-                    </select>
+                <form>
                     <div>
-                        <label for="url">Url<span class="required">*</span></label>
-                        <input type="text" id="url" placeholder="Enter your url" />
-                        <span class="error_message" id="url_error"></span>
+                        <button class="btn-tool" id="add_useragent_btn"><i class="fa-solid fa-plus"></i>Add User Agent</button>
+                    </div>
+                    <div class="user-agent-container">
+                        <div>
+                            <label for="">User Agent<span class="required">*</span></label>
+                            <select id="user_agent">
+                                <option value="">User Agent</option>
+                                <option value="*">*</option>
+                                <option value="googlebot">Googlebot</option>
+                            </select>
+                        </div>
+
+                        <div id="allow-url-container">
+                            <div>
+                                <label for="allow">Allow<span class="required">*</span></label>
+                                <div class="field-with-delete">
+                                    <input type="text" id="allow" placeholder="Enter your allow url" />
+                                    <button class="btn-tool" id="remove_allow"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+
+                                <span class="error_message" id="allow_url_error"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn-tool" id="add_allow_btn"><i class="fa-solid fa-plus"></i>Add Allow
+                                Url</button>
+                        </div>
+                        <hr/>
+
+                        <div>
+                            <div>
+                                <label for="allow">Disallow<span class="required">*</span></label>
+                                <div class="field-with-delete">
+                                    <input type="text" id="disallow" placeholder="Enter your disallow url" />
+                                    <button class="btn-tool" id="remove_disallow"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                                
+                                <span class="error_message" id="disallow_url_error"></span>
+                            </div>
+                            <button class="btn-tool" id="add_disallow_btn"><i class="fa-solid fa-plus"></i>Add Disllow
+                                Url</button>
+                        </div>
+
+
                     </div>
 
-
                     <div class="gpa-button-wrapper">
-                        <button type="submit" id="qr_code_btn"><i class="fa-solid fa-qrcode"></i>Generate QR</button>
+                        <button class="btn-tool" type="submit" id="qr_code_btn"><i class="fa-solid fa-robot"></i>Generate
+                            Robot
+                            Txt</button>
                     </div>
                 </form>
             </div>
@@ -114,7 +192,7 @@
                     <pre>{{ $content ?? "User-agent: *\nDisallow:\nSitemap: https://yourdomain.com/sitemap.xml" }}</pre>
                 </div>
 
-                <button id="download-robots">
+                <button class="btn-tool" id="download-robots">
                     <i class="fa-solid fa-download"></i> Download robots.txt
                 </button>
 
