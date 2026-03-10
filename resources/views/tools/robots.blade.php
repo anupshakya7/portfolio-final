@@ -21,6 +21,10 @@
                 margin-top: 20px;
             }
 
+            #robots-result{
+                display: none;
+            }
+
             .required {
                 color: #b10707;
                 margin: 0px 5px;
@@ -236,7 +240,7 @@
                     </div>
                 </form>
             </div>
-            <div class="gpa-converter-wrapper robots-result">
+            <div class="gpa-converter-wrapper robots-result" id="robots-result">
                 <h4>
                     Your Generated robots.txt File
                 </h4>
@@ -315,6 +319,8 @@
 
         document.getElementById('robot_generate_btn').addEventListener("click", function(e) {
             e.preventDefault();
+            
+            document.getElementById('robots-result').style.display = "none";
 
             const userAgent = document.getElementById('user_agent').value;
             const sitemap = document.getElementById('sitemap').value;
@@ -356,6 +362,22 @@
             }
 
             document.querySelector('.robots-preview pre').textContent = robotsTxt;
+
+            document.getElementById('robots-result').style.display = "flex";
+        });
+
+        document.getElementById('download-robots').addEventListener("click", function(e){
+            const content = document.querySelector('.robots-preview pre').textContent;
+
+            const blob = new Blob([content], {type: 'text/plain'});
+
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'robots.txt';
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         });
 
         // document.getElementById('')
