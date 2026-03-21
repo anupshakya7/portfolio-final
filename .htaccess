@@ -2,6 +2,7 @@
     RewriteEngine On
     
     # FORCE www -> non-www
+    RewriteCond %{HTTPS} off [OR]
     RewriteCond %{HTTP_HOST} ^www\.anup-shakya\.com\.np$ [NC]
     RewriteRule ^(.*)$ https://anup-shakya.com.np/$1 [L,R=301]
     

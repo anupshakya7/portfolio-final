@@ -1,8 +1,7 @@
 @extends('layout.web')
-@section('title', 'GPA Calculator | Convert Grades to Percentage Instantly')
+@section('title', 'Free Web Tools to Boost Productivity & Creativity')
 @section('description',
-    'Convert GPA and grades to percentage instantly with our free GPA calculator. Accurate, fast and
-    ideal for students, colleges and universities.')
+    'Discover a collection of practical and free web tools designed to help developers, designers, and creators save time and work smarter.')
     @push('css')
         <style>
             .blog-single-container {

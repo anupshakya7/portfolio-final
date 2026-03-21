@@ -39,12 +39,18 @@
     <meta property="og:site_name" content="Anup Shakya">
     <meta property="og:title" content="{{$meta_title}}">
     <meta property="og:description" content="{{$meta_desc}}">
-    <meta property="og:url" content="https://anup-shakya.com.np/">
-    <meta property="og:url" content="website">
+    <meta property="og:url" content="{{ request()->url() }}">
+    <meta property="og:type" content="{{ isset($single) ? 'article': 'website'}}">
     <meta property="og:image" content="{{$meta_image}}">
     <meta property="og:image:width" content="630">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="{{ $meta_image_alt }}">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{$meta_title}}">
+    <meta name="twitter:description" content="{{$meta_desc}}">
+    <meta name="twitter:image" content="{{$meta_image}}">
+    
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Favicon -->
@@ -60,7 +66,7 @@
     <!-- Select 2 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
     
-    <link rel="canonical" href="{{request()->url()}}" />
+    <link rel="canonical" href="{{ url()->current() }}" />
     
     <!-- Swiper CSS --> 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -80,11 +86,12 @@
     <!--Schema Markup-->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org/",
+      "@context": "https://schema.org",
       "@type": "Person",
       "name": "Anup Shakya",
-      "url": "https://anup-shakya.com.np",
+      "url": "https://anup-shakya.com.np/",
       "jobTitle":"Full Stack Developer",
+      "image": "{{$meta_image}}",
       "sameAs":[
             "https://www.linkedin.com/in/anup-shakya7/",
             "https://github.com/anupshakya7"

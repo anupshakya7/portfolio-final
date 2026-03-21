@@ -9,27 +9,67 @@
 
 <url>
   <loc>https://anup-shakya.com.np/</loc>
-  <lastmod>2026-01-20T18:39:15+00:00</lastmod>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://anup-shakya.com.np/blog</loc>
-  <lastmod>2026-01-20T18:39:15+00:00</lastmod>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://anup-shakya.com.np/tools</loc>
-  <lastmod>2026-01-20T18:39:15+00:00</lastmod>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://anup-shakya.com.np/blog/robots-txt-generator-tool-create-your-robots-txt-file-easily</loc>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://anup-shakya.com.np/blog/free-sitemap-generator-tool-create-xml-sitemap-in-seconds</loc>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://anup-shakya.com.np/blog/custom-qr-code-generator-url-and-wifi-with-logo</loc>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://anup-shakya.com.np/blog/one-to-many-relationship-in-laravel</loc>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://anup-shakya.com.np/blog/one-to-one-relationship-in-laravel</loc>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://anup-shakya.com.np/blog/mastering-laravel-relationships-a-complete-guide</loc>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://anup-shakya.com.np/tools/gpa-calculator</loc>
-  <lastmod>2026-01-20T18:39:15+00:00</lastmod>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://anup-shakya.com.np/tools/qr-code-generator</loc>
-  <lastmod>2026-01-20T18:39:15+00:00</lastmod>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://anup-shakya.com.np/tools/sitemap-generator</loc>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://anup-shakya.com.np/tools/robots-generator</loc>
+  <lastmod>2026-03-14T07:01:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
