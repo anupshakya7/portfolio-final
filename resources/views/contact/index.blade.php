@@ -126,28 +126,34 @@
                         hesitate to reach out.</p>
                     <p>Fill out the form, and I will respond as soon as possible.</p>
                     <div class="contact-items-container">
+                         @if(setting('site.email'))
                         <div class="contact-items">
-                            <a href="mailto:anupshk39@gmail.com">
+                            <a href="mailto:{{ setting('site.email') }}">
                                 <i class="fa-solid fa-envelope"></i>
                                 <span>
-                                    anupshk39@gmail.com
+                                    {{ setting('site.email') }}
                                 </span>
                             </a>
                         </div>
+                         @endif
+                         @if(setting('site.linkedin'))
                         <div class="contact-items">
-                            <a href="https://www.linkedin.com/in/anup-shakya7/" target="_blank">
+                            <a href="{{ setting('site.linkedin') }}" target="_blank">
                                 <i class="fa-brands fa-linkedin"></i>
-                                <span>https://www.linkedin.com/in/anup-shakya7/</span>
+                                <span>{{ setting('site.linkedin') }}</span>
                             </a>
                         </div>
+                        @endif
+                        @if(setting('site.mobile'))
                         <div class="contact-items">
                             <a href="tel:9860172265">
                                 <i class="fa-solid fa-phone"></i>
                                 <span>
-                                    +977-9860172265
+                                    +977-{{ setting('site.mobile') }}
                                 </span>
                             </a>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="contact-content-box">
