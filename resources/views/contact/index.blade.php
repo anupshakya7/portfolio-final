@@ -69,7 +69,7 @@
             }
 
             .g-recaptcha{
-                margin: 10px 0px;
+                margin-top: 10px;
             }
 
             .error_message {
