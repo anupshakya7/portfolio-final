@@ -1,7 +1,7 @@
 @extends('layout.web')
 @section('title', 'Contact Anup Shakya | Get in Touch for Freelance & Collaboration')
-@section('description',
-    'Reach out for freelance projects, collaborations, or inquiries. I’ll get back to you as soon as possible.')
+@section('description', 'Reach out for freelance projects, collaborations, or inquiries. I’ll get back to you as soon as
+    possible.')
     @push('css')
         <style>
             .contact-container {
@@ -68,6 +68,10 @@
                 gap: 5px !important;
             }
 
+            .g-recaptcha{
+                margin: 10px 0px;
+            }
+
             .error_message {
                 color: #b10707;
                 margin-left: 5px;
@@ -78,15 +82,30 @@
                 color: #b10707;
                 margin: 0px 5px;
             }
+
+            @media(max-width: 1086px){
+                .contact-form-content{
+                    flex-wrap: wrap;
+                }
+
+                .contact-box-padding{
+                    width:100%;
+                }
+
+                .contact-content-box{
+                    margin: 10px 0px;
+                }
+
+            }
         </style>
     @endpush
 @section('content')
     <section id="blog-breadcrumb-section">
         <div class="breadcrumb" style="background-image:url({{ set_url('assets/images/banner/contact-banner.jpg') }})">
             <div class="breadcrumb-inner">
-                <h1 style="color: #000">Contact</h1>
-                <div class="breadcrumb-inner-wrapper">
-                    <a href="{{ route('home') }}" style="color: #000"><span><i class="fa-solid fa-house"></i>Home</span></a>
+                <h1 style="color: #fff">Contact</h1>
+                <div class="breadcrumb-inner-wrapper" style="color: #fff">
+                    <a href="{{ route('home') }}" style="color: #fff"><span><i class="fa-solid fa-house"></i>Home</span></a>
                     <span> - </span>
                     <span>Contact</span>
                 </div>
@@ -135,20 +154,22 @@
                     <form action="{{ route('contact.store') }}" method="POST">
                         @csrf
                         <label for="fullname">Full Name<span class="required">*</span></label>
-                        <input type="text" name="name" value="{{ old('name') }}" id="fullname" placeholder="Enter your Fullname" />
+                        <input type="text" name="name" value="{{ old('name') }}" id="fullname"
+                            placeholder="Enter your Fullname" />
                         @error('name')
                             <span class="error_message" id="fullname">{{ $message }}</span>
                         @enderror
 
                         <label for="email">Email Address<span class="required">*</span></label>
-                        <input type="text" name="email" value="{{ old('email') }}" id="email" placeholder="Enter your Email Address" />
+                        <input type="text" name="email" value="{{ old('email') }}" id="email"
+                            placeholder="Enter your Email Address" />
                         @error('name')
                             <span class="error_message" id="email">{{ $message }}</span>
                         @enderror
 
                         <label for="phone">Phone Number</label>
-                        <input type="text" name="phone" value="{{ old('phone') }}" id="phone" placeholder="Enter your Phone Number"
-                            maxlength="10" />
+                        <input type="text" name="phone" value="{{ old('phone') }}" id="phone"
+                            placeholder="Enter your Phone Number" maxlength="10" />
                         @error('phone')
                             <span class="error_message" id="phone">{{ $message }}</span>
                         @enderror
@@ -156,11 +177,15 @@
                         <label for="">Subject / Reason for Contact<span class="required">*</span></label>
                         <select name="subject">
                             <option value="">Select Subject / Reason for Contact</option>
-                            <option value="general_inquiry" {{ old('subject') == 'general_inquiry' ? 'selected':'' }}>General Inquiry</option>
-                            <option value="freelance_project" {{ old('subject') == 'freelance_project' ? 'selected':'' }}>Freelance Project</option>
-                            <option value="collaboration" {{ old('subject') == 'collaboration' ? 'selected':'' }}>Collaboration</option>
-                            <option value="job_opportunity" {{ old('subject') == 'job_opportunity' ? 'selected':'' }}>Job Opportunity</option>
-                            <option value="other" {{ old('subject') == 'other' ? 'selected':'' }}>Other</option>
+                            <option value="general_inquiry" {{ old('subject') == 'general_inquiry' ? 'selected' : '' }}>
+                                General Inquiry</option>
+                            <option value="freelance_project" {{ old('subject') == 'freelance_project' ? 'selected' : '' }}>
+                                Freelance Project</option>
+                            <option value="collaboration" {{ old('subject') == 'collaboration' ? 'selected' : '' }}>
+                                Collaboration</option>
+                            <option value="job_opportunity" {{ old('subject') == 'job_opportunity' ? 'selected' : '' }}>Job
+                                Opportunity</option>
+                            <option value="other" {{ old('subject') == 'other' ? 'selected' : '' }}>Other</option>
                         </select>
                         @error('subject')
                             <span class="error_message" id="subject">{{ $message }}</span>
@@ -169,13 +194,13 @@
                         <label for="message">Message<span class="required">*</span></label>
                         <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter your Message..."></textarea>
                         @error('message')
-                        <span class="error_message" id="message"></span>
+                            <span class="error_message" id="message"></span>
                         @enderror
 
                         <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
                         <span class="error_message" id="recaptcha_error"></span>
                         @error('captcha')
-                        <span class="error_message">{{$message}}</span>
+                            <span class="error_message">{{ $message }}</span>
                         @enderror
 
                         <div class="gpa-button-wrapper">
