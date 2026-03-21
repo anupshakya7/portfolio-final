@@ -1,8 +1,7 @@
 @extends('layout.web')
-@section('title', 'Blog - Latest Articles, Insights & Updates | Anup Shakya')
+@section('title', 'Contact Anup Shakya | Get in Touch for Freelance & Collaboration')
 @section('description',
-    'Explore our latest blog posts covering tips, tutorials, industry insights, and updates to keep
-    you informed and inspired. Stay ahead with expert content.')
+    'Reach out for freelance projects, collaborations, or inquiries. I’ll get back to you as soon as possible.')
     @push('css')
         <style>
             .contact-container {
@@ -83,7 +82,7 @@
     @endpush
 @section('content')
     <section id="blog-breadcrumb-section">
-        <div class="breadcrumb" style="background-image:url({{ set_url('assets/images/banner/blog-banner1.gif') }})">
+        <div class="breadcrumb" style="background-image:url({{ set_url('assets/images/banner/contact-banner.jpg') }})">
             <div class="breadcrumb-inner">
                 <h1 style="color: #000">Contact</h1>
                 <div class="breadcrumb-inner-wrapper">
