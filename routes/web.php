@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PorfolioController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ToolController;
@@ -44,6 +45,9 @@ Route::prefix('tools')->name('tool.')->group(function(){
     Route::get('/robots-generator',[ToolController::class, 'robot'])->name('robots.index');
     Route::get('/robots-generator/generate',[ToolController::class, 'robotGenerate'])->name('robots.generate');
 });
+
+//Contact 
+Route::resource('contact',ContactController::class)->only(['index','store']); 
 
 Route::prefix('admin')->group(function(){
     Route::prefix('portfolio')->group(function(){
