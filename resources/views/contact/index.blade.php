@@ -1,6 +1,7 @@
 @extends('layout.web')
 @section('title', 'Contact Anup Shakya | Get in Touch for Freelance & Collaboration')
-@section('description', 'Reach out for freelance projects, collaborations, or inquiries. I’ll get back to you as soon as
+@section('description',
+    'Reach out for freelance projects, collaborations, or inquiries. I’ll get back to you as soon as
     possible.')
     @push('css')
         <style>
@@ -60,6 +61,14 @@
                 margin-right: 10px;
             }
 
+            .contact-content-box h2{
+                color: var(--main-text-color);
+            }
+
+            .contact-content-box form label{
+                color: var(--main-text-color);
+            }
+
             a:hover {
                 text-decoration: none;
             }
@@ -68,7 +77,7 @@
                 gap: 5px !important;
             }
 
-            .g-recaptcha{
+            .g-recaptcha {
                 margin-top: 10px;
             }
 
@@ -83,16 +92,16 @@
                 margin: 0px 5px;
             }
 
-            @media(max-width: 1086px){
-                .contact-form-content{
+            @media(max-width: 1086px) {
+                .contact-form-content {
                     flex-wrap: wrap;
                 }
 
-                .contact-box-padding{
-                    width:100%;
+                .contact-box-padding {
+                    width: 100%;
                 }
 
-                .contact-content-box{
+                .contact-content-box {
                     margin: 10px 0px;
                 }
 
@@ -126,33 +135,33 @@
                         hesitate to reach out.</p>
                     <p>Fill out the form, and I will respond as soon as possible.</p>
                     <div class="contact-items-container">
-                         @if(setting('site.email'))
-                        <div class="contact-items">
-                            <a href="mailto:{{ setting('site.email') }}">
-                                <i class="fa-solid fa-envelope"></i>
-                                <span>
-                                    {{ setting('site.email') }}
-                                </span>
-                            </a>
-                        </div>
-                         @endif
-                         @if(setting('site.linkedin'))
-                        <div class="contact-items">
-                            <a href="{{ setting('site.linkedin') }}" target="_blank">
-                                <i class="fa-brands fa-linkedin"></i>
-                                <span>{{ setting('site.linkedin') }}</span>
-                            </a>
-                        </div>
+                        @if (setting('site.email'))
+                            <div class="contact-items">
+                                <a href="mailto:{{ setting('site.email') }}">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span>
+                                        {{ setting('site.email') }}
+                                    </span>
+                                </a>
+                            </div>
                         @endif
-                        @if(setting('site.mobile'))
-                        <div class="contact-items">
-                            <a href="tel:9860172265">
-                                <i class="fa-solid fa-phone"></i>
-                                <span>
-                                    +977-{{ setting('site.mobile') }}
-                                </span>
-                            </a>
-                        </div>
+                        @if (setting('site.linkedin'))
+                            <div class="contact-items">
+                                <a href="{{ setting('site.linkedin') }}" target="_blank">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                    <span>{{ setting('site.linkedin') }}</span>
+                                </a>
+                            </div>
+                        @endif
+                        @if (setting('site.mobile'))
+                            <div class="contact-items">
+                                <a href="tel:9860172265">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>
+                                        +977-{{ setting('site.mobile') }}
+                                    </span>
+                                </a>
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -185,7 +194,8 @@
                             <option value="">Select Subject / Reason for Contact</option>
                             <option value="general_inquiry" {{ old('subject') == 'general_inquiry' ? 'selected' : '' }}>
                                 General Inquiry</option>
-                            <option value="freelance_project" {{ old('subject') == 'freelance_project' ? 'selected' : '' }}>
+                            <option value="freelance_project"
+                                {{ old('subject') == 'freelance_project' ? 'selected' : '' }}>
                                 Freelance Project</option>
                             <option value="collaboration" {{ old('subject') == 'collaboration' ? 'selected' : '' }}>
                                 Collaboration</option>
