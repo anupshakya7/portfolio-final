@@ -25,6 +25,7 @@ Route::get('/',[PortfolioController::class,'index'])->name('home');
 
 //Blog
 Route::resource('blog',BlogController::class)->only(['index','show']); 
+Route::get('blog/category/{category}',[BlogController::class, 'category'])->name('blog.category'); 
 
 //Tools
 Route::prefix('tools')->name('tool.')->group(function(){

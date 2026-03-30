@@ -89,10 +89,20 @@
                     <div class="article-container equal-height-item">
                         <img src="{{ $blogImage }}" alt="Hello World" class="project-img" />
                     </div>
+                     @if(Route::currentRouteName() !== 'blog.index')
                     <span class="badge">{{optional($blog->blogCategory)->title}}</span>
                     <h2 class="blogs-sub-title project-title equal-height-title">{{ $blog->title }}</h2>
+                    @else
+                    <span class="badge" style="margin: 20px 0px;">{{$blog->title}}</span>
+                    @endif
                     {{-- <p class="blog-description equal-height-description">{{Str::limit($blog->excerpt,100)}}</p> --}}
                     <div class="btn-container blog-footer">
+                        @if(Route::currentRouteName() === 'blog.index')
+                        <a href="{{ route('blog.category', $blog->slug) }}" class="btn btn-color-2 project-btn" style="margin: 15px auto;">
+                            <i class="fas fa-arrow-right"></i>
+                            View All
+                        </a>
+                        @else
                         <a href="{{ route('blog.show', $blog->slug) }}" class="btn btn-color-2 project-btn">
                             <i class="fas fa-arrow-right"></i>
                             Read More
@@ -100,6 +110,7 @@
                         <p><i
                                 class="fa-solid fa-calendar"></i>{{ \Carbon\Carbon::parse($blog->created_at)->format('d F, Y') }}
                         </p>
+                        @endif
                     </div>
                 </div>
             @endforeach

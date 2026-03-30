@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\BlogCategory;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::with('blogCategory')->where('status','Published')->latest()->paginate(6);
+        // $blogs = Blog::with('blogCategory')->where('status','Published')->latest()->paginate(6);
+        $blogs = BlogCategory::where('status','Published')->latest()->paginate(6);
 
         return view('blog.index',compact('blogs'));
     }
@@ -44,5 +46,12 @@ class BlogController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function category($category){
+        $category = BlogCategory::with('blogs')->where('slug',$category)->first();
+        $blogs = $category->blogs()->with('blogCategory')->paginate(6);
+
+        return view('blog.index',compact('blogs'));
     }
 }
