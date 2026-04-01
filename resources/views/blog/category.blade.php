@@ -1,7 +1,6 @@
 @extends('layout.web')
-@section('title', 'Blog - Latest Articles, Insights & Updates | Anup Shakya')
-@section('description', 'Explore our latest blog posts covering tips, tutorials, industry insights, and updates to keep
-    you informed and inspired. Stay ahead with expert content.')
+@section('title', 'Web Development Tutorials, Tools & Tips | Anup Shakya')
+@section('description', 'Explore in-depth tutorials, helpful tools, clear explanations, and practical tips on web development. Stay updated and enhance your skills with expert insights and guides.')
 @push('css')
     <style>
         .blogs-details-container {
@@ -79,7 +78,9 @@
                 <div class="breadcrumb-inner-wrapper">
                     <a href="{{ route('home') }}" style="color: #000"><span><i class="fa-solid fa-house"></i>Home</span></a>
                     <span> - </span>
-                    <span>Blog</span>
+                    <span><a href="{{ route('blog.index') }}" style="color: #000">Blog</a></span>
+                    <span> - </span>
+                    <span>{{ $category->title }}</span>
                 </div>
             </div>
         </div>
@@ -99,9 +100,7 @@
                     </div>
 
                     <span class="badge">
-                        <a href="{{ route('blog.category', optional($blog->blogCategory)->slug) }}" class="category-link">
-                            {{optional($blog->blogCategory)->title}}
-                        </a>
+                        {{optional($blog->blogCategory)->title}}
                     </span>
                     <h2 class="blogs-sub-title project-title equal-height-title">{{ $blog->title }}</h2>
                     {{-- <p class="blog-description equal-height-description">{{Str::limit($blog->excerpt,100)}}</p> --}}

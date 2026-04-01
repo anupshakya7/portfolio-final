@@ -1,4 +1,15 @@
 @extends('layout.web')
+@push('css')
+<style>
+    .category-link{
+        color: #fff;
+    }
+    .category-link:hover{
+        text-decoration: none;
+        color: #fff;
+    }
+</style>
+@endpush
 @section('content')
 <section id="profile" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
     <div class="section__pic-container">
@@ -190,7 +201,11 @@
             <div class="article-container equal-height-item">
                 <img src="{{ $blogImage }}" alt="Hello World" class="project-img"/>
             </div>
-            <span class="badge">{{optional($blog->blogCategory)->title}}</span>
+            <span class="badge">
+                <a href="{{ route('blog.category', optional($blog->blogCategory)->slug) }}" class="category-link">
+                    {{optional($blog->blogCategory)->title}}
+                </a>
+            </span>
             <h2 class="blogs-sub-title project-title equal-height-title">{{$blog->title}}</h2>
             {{-- <p class="blog-description equal-height-description">{{Str::limit($blog->excerpt,100)}}</p> --}}
             <div class="btn-container blog-footer">

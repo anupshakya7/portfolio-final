@@ -10,8 +10,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-        // $blogs = Blog::with('blogCategory')->where('status','Published')->latest()->paginate(6);
-        $blogs = BlogCategory::where('status','Published')->latest()->paginate(6);
+        $blogs = Blog::with('blogCategory')->where('status','Published')->latest()->paginate(6);
+        // $blogs = BlogCategory::where('status','Published')->latest()->paginate(6);
 
         return view('blog.index',compact('blogs'));
     }
@@ -52,6 +52,6 @@ class BlogController extends Controller
         $category = BlogCategory::with('blogs')->where('slug',$category)->first();
         $blogs = $category->blogs()->with('blogCategory')->paginate(6);
 
-        return view('blog.index',compact('blogs'));
+        return view('blog.category',compact('blogs','category'));
     }
 }

@@ -24,7 +24,7 @@
             <div class="breadcrumb-inner-wrapper" style="color: #fff">
                 <a href="{{ route('home') }}" style="color: #fff"><span><i class="fa-solid fa-house"></i>Home</span></a>
                 <span> - </span>
-                <a href="{{ route('blog.index') }}" style="color: #fff">Blogs</span></a>
+                <a href="{{ route('blog.index') }}" style="color: #fff">Blog</span></a>
                 <span> - </span>
                 <span>{{$single->title}}</span>
             </div>
